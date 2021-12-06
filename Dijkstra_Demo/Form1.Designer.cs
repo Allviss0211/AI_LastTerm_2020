@@ -108,12 +108,12 @@
             this.picGraphView = new System.Windows.Forms.PictureBox();
             this.ctMenustripGrapView = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.clearAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.updateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.copyGraphImageInClipboardToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MyOpenFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.MySaveFileDialog = new System.Windows.Forms.SaveFileDialog();
             this.SaveFileDialogImage = new System.Windows.Forms.SaveFileDialog();
             this.MyColorDialog = new System.Windows.Forms.ColorDialog();
-            this.updateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -145,7 +145,7 @@
             this.helpToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1179, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(1342, 28);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -158,7 +158,7 @@
             this.saveAsImageToolStripMenuItem,
             this.closeToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(44, 24);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(46, 24);
             this.fileToolStripMenuItem.Text = "File";
             // 
             // newToolStripMenuItem1
@@ -166,7 +166,7 @@
             this.newToolStripMenuItem1.Image = global::Dijkstra_Demo.Properties.Resources.New;
             this.newToolStripMenuItem1.Name = "newToolStripMenuItem1";
             this.newToolStripMenuItem1.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
-            this.newToolStripMenuItem1.Size = new System.Drawing.Size(258, 26);
+            this.newToolStripMenuItem1.Size = new System.Drawing.Size(266, 26);
             this.newToolStripMenuItem1.Text = "New";
             this.newToolStripMenuItem1.Click += new System.EventHandler(this.newToolStripMenuItem1_Click);
             // 
@@ -175,7 +175,7 @@
             this.openToolStripMenuItem.Image = global::Dijkstra_Demo.Properties.Resources.Open;
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
             this.openToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(258, 26);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(266, 26);
             this.openToolStripMenuItem.Text = "Open";
             this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
             // 
@@ -184,7 +184,7 @@
             this.saveToolStripMenuItem.Image = global::Dijkstra_Demo.Properties.Resources.Save;
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
             this.saveToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(258, 26);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(266, 26);
             this.saveToolStripMenuItem.Text = "Save";
             this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
             // 
@@ -193,7 +193,7 @@
             this.saveAsImageToolStripMenuItem.Name = "saveAsImageToolStripMenuItem";
             this.saveAsImageToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Alt) 
             | System.Windows.Forms.Keys.S)));
-            this.saveAsImageToolStripMenuItem.Size = new System.Drawing.Size(258, 26);
+            this.saveAsImageToolStripMenuItem.Size = new System.Drawing.Size(266, 26);
             this.saveAsImageToolStripMenuItem.Text = "Save as Image";
             this.saveAsImageToolStripMenuItem.Click += new System.EventHandler(this.saveAsImageToolStripMenuItem_Click);
             // 
@@ -202,7 +202,7 @@
             this.closeToolStripMenuItem.Name = "closeToolStripMenuItem";
             this.closeToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Alt) 
             | System.Windows.Forms.Keys.X)));
-            this.closeToolStripMenuItem.Size = new System.Drawing.Size(258, 26);
+            this.closeToolStripMenuItem.Size = new System.Drawing.Size(266, 26);
             this.closeToolStripMenuItem.Text = "Close";
             this.closeToolStripMenuItem.Click += new System.EventHandler(this.closeToolStripMenuItem_Click);
             // 
@@ -213,7 +213,7 @@
             this.guideToolStripMenuItem,
             this.aboutToolStripMenuItem});
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-            this.helpToolStripMenuItem.Size = new System.Drawing.Size(53, 24);
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(55, 24);
             this.helpToolStripMenuItem.Text = "Help";
             // 
             // codeDijkstraToolStripMenuItem
@@ -223,41 +223,41 @@
             this.dijkstraHeapToolStripMenuItem,
             this.dijkstraFibonnaciHeapsToolStripMenuItem});
             this.codeDijkstraToolStripMenuItem.Name = "codeDijkstraToolStripMenuItem";
-            this.codeDijkstraToolStripMenuItem.Size = new System.Drawing.Size(206, 26);
+            this.codeDijkstraToolStripMenuItem.Size = new System.Drawing.Size(214, 26);
             this.codeDijkstraToolStripMenuItem.Text = "Code Dijkstra C++";
             // 
             // dijkstraToolStripMenuItem
             // 
             this.dijkstraToolStripMenuItem.Name = "dijkstraToolStripMenuItem";
-            this.dijkstraToolStripMenuItem.Size = new System.Drawing.Size(248, 26);
+            this.dijkstraToolStripMenuItem.Size = new System.Drawing.Size(256, 26);
             this.dijkstraToolStripMenuItem.Text = "Dijkstra ";
             this.dijkstraToolStripMenuItem.Click += new System.EventHandler(this.dijkstraToolStripMenuItem_Click);
             // 
             // dijkstraHeapToolStripMenuItem
             // 
             this.dijkstraHeapToolStripMenuItem.Name = "dijkstraHeapToolStripMenuItem";
-            this.dijkstraHeapToolStripMenuItem.Size = new System.Drawing.Size(248, 26);
+            this.dijkstraHeapToolStripMenuItem.Size = new System.Drawing.Size(256, 26);
             this.dijkstraHeapToolStripMenuItem.Text = "Dijkstra Heap";
             this.dijkstraHeapToolStripMenuItem.Click += new System.EventHandler(this.dijkstraHeapToolStripMenuItem_Click);
             // 
             // dijkstraFibonnaciHeapsToolStripMenuItem
             // 
             this.dijkstraFibonnaciHeapsToolStripMenuItem.Name = "dijkstraFibonnaciHeapsToolStripMenuItem";
-            this.dijkstraFibonnaciHeapsToolStripMenuItem.Size = new System.Drawing.Size(248, 26);
+            this.dijkstraFibonnaciHeapsToolStripMenuItem.Size = new System.Drawing.Size(256, 26);
             this.dijkstraFibonnaciHeapsToolStripMenuItem.Text = "Dijkstra Fibonnaci Heaps";
             this.dijkstraFibonnaciHeapsToolStripMenuItem.Click += new System.EventHandler(this.dijkstraFibonnaciHeapsToolStripMenuItem_Click);
             // 
             // guideToolStripMenuItem
             // 
             this.guideToolStripMenuItem.Name = "guideToolStripMenuItem";
-            this.guideToolStripMenuItem.Size = new System.Drawing.Size(206, 26);
+            this.guideToolStripMenuItem.Size = new System.Drawing.Size(214, 26);
             this.guideToolStripMenuItem.Text = "Guide";
             this.guideToolStripMenuItem.Click += new System.EventHandler(this.guideToolStripMenuItem_Click);
             // 
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(206, 26);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(214, 26);
             this.aboutToolStripMenuItem.Text = "About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
@@ -270,7 +270,7 @@
             this.tabControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(426, 487);
+            this.tabControl1.Size = new System.Drawing.Size(590, 535);
             this.tabControl1.TabIndex = 1;
             // 
             // tabPage1
@@ -281,7 +281,7 @@
             this.tabPage1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.tabPage1.Size = new System.Drawing.Size(418, 454);
+            this.tabPage1.Size = new System.Drawing.Size(582, 502);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Graph";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -293,7 +293,7 @@
             this.pnlChoose.Enabled = false;
             this.pnlChoose.Location = new System.Drawing.Point(0, 103);
             this.pnlChoose.Name = "pnlChoose";
-            this.pnlChoose.Size = new System.Drawing.Size(418, 356);
+            this.pnlChoose.Size = new System.Drawing.Size(576, 396);
             this.pnlChoose.TabIndex = 3;
             // 
             // gboxLogs
@@ -302,7 +302,7 @@
             this.gboxLogs.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.gboxLogs.Location = new System.Drawing.Point(6, 90);
             this.gboxLogs.Name = "gboxLogs";
-            this.gboxLogs.Size = new System.Drawing.Size(406, 258);
+            this.gboxLogs.Size = new System.Drawing.Size(567, 306);
             this.gboxLogs.TabIndex = 3;
             this.gboxLogs.TabStop = false;
             this.gboxLogs.Text = "Logs";
@@ -311,10 +311,10 @@
             // 
             this.txbLogs.BackColor = System.Drawing.Color.White;
             this.txbLogs.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txbLogs.Location = new System.Drawing.Point(6, 22);
+            this.txbLogs.Location = new System.Drawing.Point(6, 19);
             this.txbLogs.Name = "txbLogs";
             this.txbLogs.ReadOnly = true;
-            this.txbLogs.Size = new System.Drawing.Size(394, 230);
+            this.txbLogs.Size = new System.Drawing.Size(555, 281);
             this.txbLogs.TabIndex = 0;
             this.txbLogs.Text = "Welcome! \n";
             // 
@@ -326,7 +326,7 @@
             this.gboxChooseMethod.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.gboxChooseMethod.Location = new System.Drawing.Point(6, 12);
             this.gboxChooseMethod.Name = "gboxChooseMethod";
-            this.gboxChooseMethod.Size = new System.Drawing.Size(406, 72);
+            this.gboxChooseMethod.Size = new System.Drawing.Size(567, 72);
             this.gboxChooseMethod.TabIndex = 3;
             this.gboxChooseMethod.TabStop = false;
             this.gboxChooseMethod.Text = "Choose Method";
@@ -397,7 +397,7 @@
             this.gboxType.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.gboxType.Location = new System.Drawing.Point(6, 8);
             this.gboxType.Name = "gboxType";
-            this.gboxType.Size = new System.Drawing.Size(406, 92);
+            this.gboxType.Size = new System.Drawing.Size(570, 92);
             this.gboxType.TabIndex = 2;
             this.gboxType.TabStop = false;
             this.gboxType.Text = "Graph Type";
@@ -441,7 +441,7 @@
             this.tabPage2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.tabPage2.Size = new System.Drawing.Size(418, 454);
+            this.tabPage2.Size = new System.Drawing.Size(582, 502);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Dijkstra";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -454,7 +454,7 @@
             this.pnlDijkstra.Enabled = false;
             this.pnlDijkstra.Location = new System.Drawing.Point(3, 3);
             this.pnlDijkstra.Name = "pnlDijkstra";
-            this.pnlDijkstra.Size = new System.Drawing.Size(413, 453);
+            this.pnlDijkstra.Size = new System.Drawing.Size(576, 496);
             this.pnlDijkstra.TabIndex = 23;
             // 
             // gboxRun
@@ -466,7 +466,7 @@
             this.gboxRun.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.gboxRun.Location = new System.Drawing.Point(3, 109);
             this.gboxRun.Name = "gboxRun";
-            this.gboxRun.Size = new System.Drawing.Size(406, 103);
+            this.gboxRun.Size = new System.Drawing.Size(570, 103);
             this.gboxRun.TabIndex = 7;
             this.gboxRun.TabStop = false;
             this.gboxRun.Text = "Run Method";
@@ -551,7 +551,7 @@
             this.gboxChoosePoint.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.gboxChoosePoint.Location = new System.Drawing.Point(3, 3);
             this.gboxChoosePoint.Name = "gboxChoosePoint";
-            this.gboxChoosePoint.Size = new System.Drawing.Size(406, 100);
+            this.gboxChoosePoint.Size = new System.Drawing.Size(570, 100);
             this.gboxChoosePoint.TabIndex = 3;
             this.gboxChoosePoint.TabStop = false;
             this.gboxChoosePoint.Text = "Choose Point";
@@ -617,18 +617,19 @@
             this.gboxPath.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.gboxPath.Location = new System.Drawing.Point(3, 218);
             this.gboxPath.Name = "gboxPath";
-            this.gboxPath.Size = new System.Drawing.Size(406, 231);
+            this.gboxPath.Size = new System.Drawing.Size(570, 278);
             this.gboxPath.TabIndex = 5;
             this.gboxPath.TabStop = false;
-            this.gboxPath.Text = "Path";
+            this.gboxPath.Text = "PseudoCode";
             // 
             // txbLogDijkstra
             // 
             this.txbLogDijkstra.BackColor = System.Drawing.Color.White;
             this.txbLogDijkstra.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txbLogDijkstra.Location = new System.Drawing.Point(6, 22);
+            this.txbLogDijkstra.Location = new System.Drawing.Point(6, 18);
             this.txbLogDijkstra.Name = "txbLogDijkstra";
-            this.txbLogDijkstra.Size = new System.Drawing.Size(394, 203);
+            this.txbLogDijkstra.ReadOnly = true;
+            this.txbLogDijkstra.Size = new System.Drawing.Size(558, 254);
             this.txbLogDijkstra.TabIndex = 1;
             this.txbLogDijkstra.Text = "";
             // 
@@ -637,7 +638,7 @@
             this.tabPage3.Controls.Add(this.pnlTested);
             this.tabPage3.Location = new System.Drawing.Point(4, 29);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(418, 454);
+            this.tabPage3.Size = new System.Drawing.Size(582, 502);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Tested";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -655,7 +656,7 @@
             this.pnlTested.Enabled = false;
             this.pnlTested.Location = new System.Drawing.Point(3, 3);
             this.pnlTested.Name = "pnlTested";
-            this.pnlTested.Size = new System.Drawing.Size(412, 448);
+            this.pnlTested.Size = new System.Drawing.Size(576, 496);
             this.pnlTested.TabIndex = 0;
             // 
             // btnClearTested
@@ -689,7 +690,7 @@
             this.fpnlTested.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.fpnlTested.Location = new System.Drawing.Point(7, 118);
             this.fpnlTested.Name = "fpnlTested";
-            this.fpnlTested.Size = new System.Drawing.Size(393, 327);
+            this.fpnlTested.Size = new System.Drawing.Size(566, 375);
             this.fpnlTested.TabIndex = 7;
             this.fpnlTested.WrapContents = false;
             // 
@@ -697,7 +698,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.ForeColor = System.Drawing.Color.Black;
-            this.label10.Location = new System.Drawing.Point(81, 32);
+            this.label10.Location = new System.Drawing.Point(175, 32);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(31, 20);
             this.label10.TabIndex = 5;
@@ -730,13 +731,13 @@
             // 
             this.txbStarting.Location = new System.Drawing.Point(7, 29);
             this.txbStarting.Name = "txbStarting";
-            this.txbStarting.Size = new System.Drawing.Size(68, 27);
+            this.txbStarting.Size = new System.Drawing.Size(162, 27);
             this.txbStarting.TabIndex = 2;
             this.toolTip1.SetToolTip(this.txbStarting, "One Point Starting");
             // 
             // txbListLocation
             // 
-            this.txbListLocation.Location = new System.Drawing.Point(118, 29);
+            this.txbListLocation.Location = new System.Drawing.Point(212, 29);
             this.txbListLocation.Name = "txbListLocation";
             this.txbListLocation.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.txbListLocation.Size = new System.Drawing.Size(282, 27);
@@ -890,9 +891,10 @@
             this.lvTableView.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lvTableView.FullRowSelect = true;
-            this.lvTableView.Location = new System.Drawing.Point(380, 520);
+            this.lvTableView.HideSelection = false;
+            this.lvTableView.Location = new System.Drawing.Point(543, 570);
             this.lvTableView.Name = "lvTableView";
-            this.lvTableView.Size = new System.Drawing.Size(786, 256);
+            this.lvTableView.Size = new System.Drawing.Size(786, 206);
             this.lvTableView.TabIndex = 4;
             this.lvTableView.UseCompatibleStateImageBehavior = false;
             this.lvTableView.View = System.Windows.Forms.View.Details;
@@ -913,7 +915,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(380, 498);
+            this.label2.Location = new System.Drawing.Point(539, 547);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(65, 20);
             this.label2.TabIndex = 13;
@@ -927,9 +929,10 @@
             this.columnHeader1});
             this.lvMatrixView.ContextMenuStrip = this.ctMenuStripMatrix;
             this.lvMatrixView.FullRowSelect = true;
-            this.lvMatrixView.Location = new System.Drawing.Point(12, 520);
+            this.lvMatrixView.HideSelection = false;
+            this.lvMatrixView.Location = new System.Drawing.Point(12, 570);
             this.lvMatrixView.Name = "lvMatrixView";
-            this.lvMatrixView.Size = new System.Drawing.Size(362, 256);
+            this.lvMatrixView.Size = new System.Drawing.Size(525, 206);
             this.lvMatrixView.TabIndex = 14;
             this.lvMatrixView.UseCompatibleStateImageBehavior = false;
             this.lvMatrixView.View = System.Windows.Forms.View.Details;
@@ -959,7 +962,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(12, 498);
+            this.label3.Location = new System.Drawing.Point(12, 547);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(74, 20);
             this.label3.TabIndex = 15;
@@ -995,7 +998,7 @@
             this.pnlGraph.Enabled = false;
             this.pnlGraph.Location = new System.Drawing.Point(0, 28);
             this.pnlGraph.Name = "pnlGraph";
-            this.pnlGraph.Size = new System.Drawing.Size(740, 472);
+            this.pnlGraph.Size = new System.Drawing.Size(740, 516);
             this.pnlGraph.TabIndex = 22;
             // 
             // lbStatus
@@ -1026,7 +1029,7 @@
             this.picGraphView.Location = new System.Drawing.Point(12, 43);
             this.picGraphView.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.picGraphView.Name = "picGraphView";
-            this.picGraphView.Size = new System.Drawing.Size(722, 422);
+            this.picGraphView.Size = new System.Drawing.Size(722, 469);
             this.picGraphView.TabIndex = 3;
             this.picGraphView.TabStop = false;
             this.picGraphView.Paint += new System.Windows.Forms.PaintEventHandler(this.picGraphView_Paint);
@@ -1042,7 +1045,7 @@
             this.updateToolStripMenuItem,
             this.copyGraphImageInClipboardToolStripMenuItem});
             this.ctMenustripGrapView.Name = "ctMenustripGrapView";
-            this.ctMenustripGrapView.Size = new System.Drawing.Size(314, 104);
+            this.ctMenustripGrapView.Size = new System.Drawing.Size(314, 76);
             // 
             // clearAllToolStripMenuItem
             // 
@@ -1050,6 +1053,13 @@
             this.clearAllToolStripMenuItem.Size = new System.Drawing.Size(313, 24);
             this.clearAllToolStripMenuItem.Text = "Clear all";
             this.clearAllToolStripMenuItem.Click += new System.EventHandler(this.clearAllToolStripMenuItem_Click);
+            // 
+            // updateToolStripMenuItem
+            // 
+            this.updateToolStripMenuItem.Name = "updateToolStripMenuItem";
+            this.updateToolStripMenuItem.Size = new System.Drawing.Size(313, 24);
+            this.updateToolStripMenuItem.Text = "Update";
+            this.updateToolStripMenuItem.Click += new System.EventHandler(this.updateToolStripMenuItem_Click);
             // 
             // copyGraphImageInClipboardToolStripMenuItem
             // 
@@ -1080,13 +1090,6 @@
             // 
             this.MyColorDialog.FullOpen = true;
             // 
-            // updateToolStripMenuItem
-            // 
-            this.updateToolStripMenuItem.Name = "updateToolStripMenuItem";
-            this.updateToolStripMenuItem.Size = new System.Drawing.Size(313, 24);
-            this.updateToolStripMenuItem.Text = "Update";
-            this.updateToolStripMenuItem.Click += new System.EventHandler(this.updateToolStripMenuItem_Click);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -1094,7 +1097,7 @@
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.GhostWhite;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.ClientSize = new System.Drawing.Size(1179, 788);
+            this.ClientSize = new System.Drawing.Size(1342, 788);
             this.Controls.Add(this.pnlGraph);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.lvMatrixView);

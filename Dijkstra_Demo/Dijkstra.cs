@@ -8,16 +8,17 @@ namespace Dijkstra_Demo
     public class Dijkstra
     {
         MyGraphic myGraphic = new MyGraphic();
-
+    
         //Hàm dijkstra chạy từ điểm đến điểm
-        public void DijkstraSimple(ListView lv, ListView lvtable, int n, int s, int e, out bool isPath, RichTextBox txb, List<Point> pt, List<Form1.Segment> segment, List<Form1.Segment> tmp, List<int> _segment, List<List<Form1.Segment>> Segment_Review, bool undirected)
+        public void DijkstraSimple(string[] pesude, ListView lv, ListView lvtable, int n, int s, int e, out bool isPath, List<Point> pt, List<Form1.Segment> segment, List<Form1.Segment> tmp, List<int> _segment, List<List<Form1.Segment>> Segment_Review, bool undirected)
         {
             tmp.Clear();
-            txb.Clear();
+  
             lvtable.Clear();
             Segment_Review.Clear();
             _segment.Clear();
 
+            
             ListViewItem it = new ListViewItem("(oo, -)");
 
             for (int i = 1; i < n; ++i) lvtable.Columns.Add(i.ToString(), 80);
@@ -79,7 +80,7 @@ namespace Dijkstra_Demo
                     }
                 }
 
-                if (dem == n - 1) { txb.Text = "No Path!"; isPath = false; break; }
+                //if (dem == n - 1) { txb.Text = "No Path!"; isPath = false; break; }
 
                 int Mins = oo;
 
@@ -91,6 +92,7 @@ namespace Dijkstra_Demo
                         {
                             v = i;
                             Mins = length[i];
+                            Console.WriteLine(pesude[1]);
                         }
                     }
                 }
@@ -115,25 +117,27 @@ namespace Dijkstra_Demo
                 {
                     roads.Add(k);
                     k = last[k];
+                    Console.WriteLine(pesude[2]);
                 }
-
+                
                 roads.Add(s);
 
-                txb.Text += "Shortest Path [" + (s + 1).ToString() + "->" + (e + 1).ToString() + "] : ";
+                //txb.Text += "Shortest Path [" + (s + 1).ToString() + "->" + (e + 1).ToString() + "] : ";
                 for (int i = roads.Count - 1; i > 0; --i)
                 {
                     tmp.Add(new Form1.Segment(roads[i], roads[i - 1], checkIndexWidth(segment, roads[i], roads[i - 1], undirected)));
-                    txb.Text += (roads[i] + 1).ToString() + " --> ";
+                   //txb.Text += (roads[i] + 1).ToString() + " --> ";
                 }
-                txb.Text += (roads[0] + 1).ToString() + "\n Length: " + length[e].ToString();
+                
+                //txb.Text += (roads[0] + 1).ToString() + "\n Length: " + length[e].ToString();
             }
         }
 
         //Hàm dijkstra chạy từ 1 đểm đến tất cả
-        public void DijkstraAll(ListView lv, ListView lvtable, int n, int s, out bool isPath, RichTextBox txb, List<Point> pt, List<Form1.Segment> segment, List<Form1.Segment> tmp, bool undirected)
+        public void DijkstraAll(ListView lv, ListView lvtable, int n, int s, out bool isPath, List<Point> pt, List<Form1.Segment> segment, List<Form1.Segment> tmp, bool undirected)
         {
             tmp.Clear();
-            txb.Clear();
+            
             lvtable.Clear();            
 
             ListViewItem it = new ListViewItem("(oo, -)");
@@ -195,7 +199,7 @@ namespace Dijkstra_Demo
                     }                
                 }
 
-                if (dem == n - 1) { txb.Text = "No Path!"; isPath = false; break; }
+                //if (dem == n - 1) { txb.Text = "No Path!"; isPath = false; break; }
 
                 int Mins = oo;
 
@@ -218,6 +222,7 @@ namespace Dijkstra_Demo
 
                 ++b; --t;
             }
+           
             if (isPath)
             {
                 //Truy vết
@@ -237,13 +242,13 @@ namespace Dijkstra_Demo
 
                             roads.Add(s);
 
-                            txb.Text += "Shortest Path [" + (s + 1).ToString() + "->" + (i + 1).ToString() + "] : ";
+                            //txb.Text += "Shortest Path [" + (s + 1).ToString() + "->" + (i + 1).ToString() + "] : ";
                             for (int j = roads.Count - 1; j > 0; --j)
                             {
                                 tmp.Add(new Form1.Segment(roads[j], roads[j - 1], checkIndexWidth(segment, roads[j], roads[j - 1], undirected)));
-                                txb.Text += (roads[j] + 1).ToString() + " --> ";
+                                //txb.Text += (roads[j] + 1).ToString() + " --> ";
                             }
-                            txb.Text += (roads[0] + 1).ToString() + "\n Length: " + length[i].ToString() + "\n";
+                            //txb.Text += (roads[0] + 1).ToString() + "\n Length: " + length[i].ToString() + "\n";
                         }
                         catch (Exception)
                         {
