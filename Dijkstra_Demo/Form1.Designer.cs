@@ -84,6 +84,19 @@
             this.btnProcessing = new System.Windows.Forms.Button();
             this.txbStarting = new System.Windows.Forms.TextBox();
             this.txbListLocation = new System.Windows.Forms.TextBox();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.tbLogPrim = new System.Windows.Forms.RichTextBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.pnlTimeSleep2 = new System.Windows.Forms.Panel();
+            this.label11 = new System.Windows.Forms.Label();
+            this.txtSleepTime = new System.Windows.Forms.TextBox();
+            this.cbxTimeSleep2 = new System.Windows.Forms.CheckBox();
+            this.btnRunPrim = new System.Windows.Forms.Button();
+            this.btnRunStepPrim = new System.Windows.Forms.Button();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.cbStartVertex = new System.Windows.Forms.ComboBox();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.btnColor = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
@@ -130,6 +143,11 @@
             this.gboxPath.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.pnlTested.SuspendLayout();
+            this.tabPage4.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            this.pnlTimeSleep2.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.ctMenuStripMatrix.SuspendLayout();
             this.pnlGraph.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picGraphView)).BeginInit();
@@ -145,7 +163,7 @@
             this.helpToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1342, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(1342, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -158,7 +176,7 @@
             this.saveAsImageToolStripMenuItem,
             this.closeToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(46, 24);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.fileToolStripMenuItem.Text = "File";
             // 
             // newToolStripMenuItem1
@@ -166,7 +184,7 @@
             this.newToolStripMenuItem1.Image = global::Dijkstra_Demo.Properties.Resources.New;
             this.newToolStripMenuItem1.Name = "newToolStripMenuItem1";
             this.newToolStripMenuItem1.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
-            this.newToolStripMenuItem1.Size = new System.Drawing.Size(266, 26);
+            this.newToolStripMenuItem1.Size = new System.Drawing.Size(215, 26);
             this.newToolStripMenuItem1.Text = "New";
             this.newToolStripMenuItem1.Click += new System.EventHandler(this.newToolStripMenuItem1_Click);
             // 
@@ -175,7 +193,7 @@
             this.openToolStripMenuItem.Image = global::Dijkstra_Demo.Properties.Resources.Open;
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
             this.openToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(266, 26);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(215, 26);
             this.openToolStripMenuItem.Text = "Open";
             this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
             // 
@@ -184,7 +202,7 @@
             this.saveToolStripMenuItem.Image = global::Dijkstra_Demo.Properties.Resources.Save;
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
             this.saveToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(266, 26);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(215, 26);
             this.saveToolStripMenuItem.Text = "Save";
             this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
             // 
@@ -193,7 +211,7 @@
             this.saveAsImageToolStripMenuItem.Name = "saveAsImageToolStripMenuItem";
             this.saveAsImageToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Alt) 
             | System.Windows.Forms.Keys.S)));
-            this.saveAsImageToolStripMenuItem.Size = new System.Drawing.Size(266, 26);
+            this.saveAsImageToolStripMenuItem.Size = new System.Drawing.Size(215, 26);
             this.saveAsImageToolStripMenuItem.Text = "Save as Image";
             this.saveAsImageToolStripMenuItem.Click += new System.EventHandler(this.saveAsImageToolStripMenuItem_Click);
             // 
@@ -202,7 +220,7 @@
             this.closeToolStripMenuItem.Name = "closeToolStripMenuItem";
             this.closeToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Alt) 
             | System.Windows.Forms.Keys.X)));
-            this.closeToolStripMenuItem.Size = new System.Drawing.Size(266, 26);
+            this.closeToolStripMenuItem.Size = new System.Drawing.Size(215, 26);
             this.closeToolStripMenuItem.Text = "Close";
             this.closeToolStripMenuItem.Click += new System.EventHandler(this.closeToolStripMenuItem_Click);
             // 
@@ -213,7 +231,7 @@
             this.guideToolStripMenuItem,
             this.aboutToolStripMenuItem});
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-            this.helpToolStripMenuItem.Size = new System.Drawing.Size(55, 24);
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
             this.helpToolStripMenuItem.Text = "Help";
             // 
             // codeDijkstraToolStripMenuItem
@@ -223,41 +241,41 @@
             this.dijkstraHeapToolStripMenuItem,
             this.dijkstraFibonnaciHeapsToolStripMenuItem});
             this.codeDijkstraToolStripMenuItem.Name = "codeDijkstraToolStripMenuItem";
-            this.codeDijkstraToolStripMenuItem.Size = new System.Drawing.Size(214, 26);
+            this.codeDijkstraToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
             this.codeDijkstraToolStripMenuItem.Text = "Code Dijkstra C++";
             // 
             // dijkstraToolStripMenuItem
             // 
             this.dijkstraToolStripMenuItem.Name = "dijkstraToolStripMenuItem";
-            this.dijkstraToolStripMenuItem.Size = new System.Drawing.Size(256, 26);
+            this.dijkstraToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
             this.dijkstraToolStripMenuItem.Text = "Dijkstra ";
             this.dijkstraToolStripMenuItem.Click += new System.EventHandler(this.dijkstraToolStripMenuItem_Click);
             // 
             // dijkstraHeapToolStripMenuItem
             // 
             this.dijkstraHeapToolStripMenuItem.Name = "dijkstraHeapToolStripMenuItem";
-            this.dijkstraHeapToolStripMenuItem.Size = new System.Drawing.Size(256, 26);
+            this.dijkstraHeapToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
             this.dijkstraHeapToolStripMenuItem.Text = "Dijkstra Heap";
             this.dijkstraHeapToolStripMenuItem.Click += new System.EventHandler(this.dijkstraHeapToolStripMenuItem_Click);
             // 
             // dijkstraFibonnaciHeapsToolStripMenuItem
             // 
             this.dijkstraFibonnaciHeapsToolStripMenuItem.Name = "dijkstraFibonnaciHeapsToolStripMenuItem";
-            this.dijkstraFibonnaciHeapsToolStripMenuItem.Size = new System.Drawing.Size(256, 26);
+            this.dijkstraFibonnaciHeapsToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
             this.dijkstraFibonnaciHeapsToolStripMenuItem.Text = "Dijkstra Fibonnaci Heaps";
             this.dijkstraFibonnaciHeapsToolStripMenuItem.Click += new System.EventHandler(this.dijkstraFibonnaciHeapsToolStripMenuItem_Click);
             // 
             // guideToolStripMenuItem
             // 
             this.guideToolStripMenuItem.Name = "guideToolStripMenuItem";
-            this.guideToolStripMenuItem.Size = new System.Drawing.Size(214, 26);
+            this.guideToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
             this.guideToolStripMenuItem.Text = "Guide";
             this.guideToolStripMenuItem.Click += new System.EventHandler(this.guideToolStripMenuItem_Click);
             // 
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(214, 26);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
             this.aboutToolStripMenuItem.Text = "About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
@@ -266,6 +284,7 @@
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
+            this.tabControl1.Controls.Add(this.tabPage4);
             this.tabControl1.Location = new System.Drawing.Point(740, 28);
             this.tabControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tabControl1.Name = "tabControl1";
@@ -277,11 +296,11 @@
             // 
             this.tabPage1.Controls.Add(this.pnlChoose);
             this.tabPage1.Controls.Add(this.gboxType);
-            this.tabPage1.Location = new System.Drawing.Point(4, 29);
+            this.tabPage1.Location = new System.Drawing.Point(4, 24);
             this.tabPage1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.tabPage1.Size = new System.Drawing.Size(582, 502);
+            this.tabPage1.Size = new System.Drawing.Size(582, 507);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Graph";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -353,7 +372,7 @@
             "Demo 5"});
             this.cbDemo.Location = new System.Drawing.Point(17, 11);
             this.cbDemo.Name = "cbDemo";
-            this.cbDemo.Size = new System.Drawing.Size(143, 28);
+            this.cbDemo.Size = new System.Drawing.Size(143, 23);
             this.cbDemo.TabIndex = 0;
             this.cbDemo.SelectedIndexChanged += new System.EventHandler(this.cbDemo_SelectedIndexChanged);
             // 
@@ -366,7 +385,7 @@
             this.rbtnDraw.Location = new System.Drawing.Point(22, 27);
             this.rbtnDraw.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.rbtnDraw.Name = "rbtnDraw";
-            this.rbtnDraw.Size = new System.Drawing.Size(65, 24);
+            this.rbtnDraw.Size = new System.Drawing.Size(52, 19);
             this.rbtnDraw.TabIndex = 1;
             this.rbtnDraw.TabStop = true;
             this.rbtnDraw.Text = "Draw";
@@ -382,7 +401,7 @@
             this.rbtnDemo.Location = new System.Drawing.Point(141, 27);
             this.rbtnDemo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.rbtnDemo.Name = "rbtnDemo";
-            this.rbtnDemo.Size = new System.Drawing.Size(71, 24);
+            this.rbtnDemo.Size = new System.Drawing.Size(57, 19);
             this.rbtnDemo.TabIndex = 1;
             this.rbtnDemo.TabStop = true;
             this.rbtnDemo.Text = "Demo";
@@ -410,7 +429,7 @@
             this.rbtnUnDirected.Location = new System.Drawing.Point(22, 27);
             this.rbtnUnDirected.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.rbtnUnDirected.Name = "rbtnUnDirected";
-            this.rbtnUnDirected.Size = new System.Drawing.Size(105, 24);
+            this.rbtnUnDirected.Size = new System.Drawing.Size(84, 19);
             this.rbtnUnDirected.TabIndex = 1;
             this.rbtnUnDirected.TabStop = true;
             this.rbtnUnDirected.Text = "UnDirected";
@@ -426,7 +445,7 @@
             this.rbtnDirected.Location = new System.Drawing.Point(22, 56);
             this.rbtnDirected.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.rbtnDirected.Name = "rbtnDirected";
-            this.rbtnDirected.Size = new System.Drawing.Size(87, 24);
+            this.rbtnDirected.Size = new System.Drawing.Size(69, 19);
             this.rbtnDirected.TabIndex = 1;
             this.rbtnDirected.TabStop = true;
             this.rbtnDirected.Text = "Directed";
@@ -437,11 +456,11 @@
             // tabPage2
             // 
             this.tabPage2.Controls.Add(this.pnlDijkstra);
-            this.tabPage2.Location = new System.Drawing.Point(4, 29);
+            this.tabPage2.Location = new System.Drawing.Point(4, 24);
             this.tabPage2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.tabPage2.Size = new System.Drawing.Size(582, 502);
+            this.tabPage2.Size = new System.Drawing.Size(582, 507);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Dijkstra";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -488,7 +507,7 @@
             this.label7.ForeColor = System.Drawing.Color.Black;
             this.label7.Location = new System.Drawing.Point(112, 10);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(89, 20);
+            this.label7.Size = new System.Drawing.Size(71, 15);
             this.label7.TabIndex = 8;
             this.label7.Text = "millisecond ";
             // 
@@ -496,7 +515,7 @@
             // 
             this.txbTimeSleep.Location = new System.Drawing.Point(4, 3);
             this.txbTimeSleep.Name = "txbTimeSleep";
-            this.txbTimeSleep.Size = new System.Drawing.Size(100, 27);
+            this.txbTimeSleep.Size = new System.Drawing.Size(100, 23);
             this.txbTimeSleep.TabIndex = 23;
             // 
             // cbxTimeSleep
@@ -505,7 +524,7 @@
             this.cbxTimeSleep.ForeColor = System.Drawing.Color.Black;
             this.cbxTimeSleep.Location = new System.Drawing.Point(22, 68);
             this.cbxTimeSleep.Name = "cbxTimeSleep";
-            this.cbxTimeSleep.Size = new System.Drawing.Size(105, 24);
+            this.cbxTimeSleep.Size = new System.Drawing.Size(83, 19);
             this.cbxTimeSleep.TabIndex = 22;
             this.cbxTimeSleep.Text = "Time Sleep";
             this.toolTip1.SetToolTip(this.cbxTimeSleep, "Run with timesleep");
@@ -563,7 +582,7 @@
             this.label4.ForeColor = System.Drawing.Color.Black;
             this.label4.Location = new System.Drawing.Point(152, 58);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(15, 20);
+            this.label4.Size = new System.Drawing.Size(12, 15);
             this.label4.TabIndex = 7;
             this.label4.Text = "-";
             // 
@@ -574,7 +593,7 @@
             this.label6.ForeColor = System.Drawing.Color.Black;
             this.label6.Location = new System.Drawing.Point(174, 31);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(71, 20);
+            this.label6.Size = new System.Drawing.Size(58, 15);
             this.label6.TabIndex = 6;
             this.label6.Text = "End Point";
             // 
@@ -585,7 +604,7 @@
             this.label5.ForeColor = System.Drawing.Color.Black;
             this.label5.Location = new System.Drawing.Point(15, 31);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(77, 20);
+            this.label5.Size = new System.Drawing.Size(62, 15);
             this.label5.TabIndex = 5;
             this.label5.Text = "Start Point";
             // 
@@ -598,7 +617,7 @@
             "All"});
             this.cbEndPoint.Location = new System.Drawing.Point(178, 54);
             this.cbEndPoint.Name = "cbEndPoint";
-            this.cbEndPoint.Size = new System.Drawing.Size(121, 28);
+            this.cbEndPoint.Size = new System.Drawing.Size(121, 23);
             this.cbEndPoint.TabIndex = 1;
             // 
             // cbStartPoint
@@ -608,7 +627,7 @@
             this.cbStartPoint.FormattingEnabled = true;
             this.cbStartPoint.Location = new System.Drawing.Point(19, 54);
             this.cbStartPoint.Name = "cbStartPoint";
-            this.cbStartPoint.Size = new System.Drawing.Size(121, 28);
+            this.cbStartPoint.Size = new System.Drawing.Size(121, 23);
             this.cbStartPoint.TabIndex = 0;
             // 
             // gboxPath
@@ -636,9 +655,9 @@
             // tabPage3
             // 
             this.tabPage3.Controls.Add(this.pnlTested);
-            this.tabPage3.Location = new System.Drawing.Point(4, 29);
+            this.tabPage3.Location = new System.Drawing.Point(4, 24);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(582, 502);
+            this.tabPage3.Size = new System.Drawing.Size(582, 507);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Tested";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -678,7 +697,7 @@
             this.lbRecommed.ForeColor = System.Drawing.Color.Black;
             this.lbRecommed.Location = new System.Drawing.Point(14, 95);
             this.lbRecommed.Name = "lbRecommed";
-            this.lbRecommed.Size = new System.Drawing.Size(110, 20);
+            this.lbRecommed.Size = new System.Drawing.Size(88, 15);
             this.lbRecommed.TabIndex = 8;
             this.lbRecommed.Text = "Recommended";
             // 
@@ -700,7 +719,7 @@
             this.label10.ForeColor = System.Drawing.Color.Black;
             this.label10.Location = new System.Drawing.Point(175, 32);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(31, 20);
+            this.label10.Size = new System.Drawing.Size(25, 15);
             this.label10.TabIndex = 5;
             this.label10.Text = "-->";
             // 
@@ -711,7 +730,7 @@
             this.label9.ForeColor = System.Drawing.Color.Black;
             this.label9.Location = new System.Drawing.Point(14, 6);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(61, 20);
+            this.label9.Size = new System.Drawing.Size(48, 15);
             this.label9.TabIndex = 4;
             this.label9.Text = "Starting";
             // 
@@ -731,7 +750,7 @@
             // 
             this.txbStarting.Location = new System.Drawing.Point(7, 29);
             this.txbStarting.Name = "txbStarting";
-            this.txbStarting.Size = new System.Drawing.Size(162, 27);
+            this.txbStarting.Size = new System.Drawing.Size(162, 23);
             this.txbStarting.TabIndex = 2;
             this.toolTip1.SetToolTip(this.txbStarting, "One Point Starting");
             // 
@@ -740,9 +759,161 @@
             this.txbListLocation.Location = new System.Drawing.Point(212, 29);
             this.txbListLocation.Name = "txbListLocation";
             this.txbListLocation.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txbListLocation.Size = new System.Drawing.Size(282, 27);
+            this.txbListLocation.Size = new System.Drawing.Size(282, 23);
             this.txbListLocation.TabIndex = 1;
             this.toolTip1.SetToolTip(this.txbListLocation, "List Point");
+            // 
+            // tabPage4
+            // 
+            this.tabPage4.Controls.Add(this.groupBox3);
+            this.tabPage4.Controls.Add(this.groupBox1);
+            this.tabPage4.Controls.Add(this.groupBox2);
+            this.tabPage4.Location = new System.Drawing.Point(4, 24);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Size = new System.Drawing.Size(582, 507);
+            this.tabPage4.TabIndex = 3;
+            this.tabPage4.Text = "Prim";
+            this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.tbLogPrim);
+            this.groupBox3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.groupBox3.Location = new System.Drawing.Point(6, 214);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(570, 278);
+            this.groupBox3.TabIndex = 11;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "PseudoCode";
+            // 
+            // tbLogPrim
+            // 
+            this.tbLogPrim.BackColor = System.Drawing.Color.White;
+            this.tbLogPrim.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbLogPrim.Location = new System.Drawing.Point(6, 20);
+            this.tbLogPrim.Name = "tbLogPrim";
+            this.tbLogPrim.ReadOnly = true;
+            this.tbLogPrim.Size = new System.Drawing.Size(558, 254);
+            this.tbLogPrim.TabIndex = 1;
+            this.tbLogPrim.Text = "";
+            this.tbLogPrim.TextChanged += new System.EventHandler(this.richTextBox1_TextChanged);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.pnlTimeSleep2);
+            this.groupBox1.Controls.Add(this.cbxTimeSleep2);
+            this.groupBox1.Controls.Add(this.btnRunPrim);
+            this.groupBox1.Controls.Add(this.btnRunStepPrim);
+            this.groupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.groupBox1.Location = new System.Drawing.Point(6, 109);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(570, 103);
+            this.groupBox1.TabIndex = 10;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Run Method";
+            // 
+            // pnlTimeSleep2
+            // 
+            this.pnlTimeSleep2.Controls.Add(this.label11);
+            this.pnlTimeSleep2.Controls.Add(this.txtSleepTime);
+            this.pnlTimeSleep2.Enabled = false;
+            this.pnlTimeSleep2.Location = new System.Drawing.Point(131, 60);
+            this.pnlTimeSleep2.Name = "pnlTimeSleep2";
+            this.pnlTimeSleep2.Size = new System.Drawing.Size(210, 33);
+            this.pnlTimeSleep2.TabIndex = 5;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.ForeColor = System.Drawing.Color.Black;
+            this.label11.Location = new System.Drawing.Point(112, 10);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(71, 15);
+            this.label11.TabIndex = 8;
+            this.label11.Text = "millisecond ";
+            // 
+            // txtSleepTime
+            // 
+            this.txtSleepTime.Location = new System.Drawing.Point(4, 3);
+            this.txtSleepTime.Name = "txtSleepTime";
+            this.txtSleepTime.Size = new System.Drawing.Size(100, 23);
+            this.txtSleepTime.TabIndex = 23;
+            // 
+            // cbxTimeSleep2
+            // 
+            this.cbxTimeSleep2.AutoSize = true;
+            this.cbxTimeSleep2.ForeColor = System.Drawing.Color.Black;
+            this.cbxTimeSleep2.Location = new System.Drawing.Point(22, 68);
+            this.cbxTimeSleep2.Name = "cbxTimeSleep2";
+            this.cbxTimeSleep2.Size = new System.Drawing.Size(83, 19);
+            this.cbxTimeSleep2.TabIndex = 22;
+            this.cbxTimeSleep2.Text = "Time Sleep";
+            this.toolTip1.SetToolTip(this.cbxTimeSleep2, "Run with timesleep");
+            this.cbxTimeSleep2.UseVisualStyleBackColor = true;
+            this.cbxTimeSleep2.CheckedChanged += new System.EventHandler(this.cbxTimeSleep2_CheckedChanged);
+            // 
+            // btnRunPrim
+            // 
+            this.btnRunPrim.ForeColor = System.Drawing.Color.Black;
+            this.btnRunPrim.Image = global::Dijkstra_Demo.Properties.Resources.Play;
+            this.btnRunPrim.Location = new System.Drawing.Point(19, 26);
+            this.btnRunPrim.Name = "btnRunPrim";
+            this.btnRunPrim.Size = new System.Drawing.Size(148, 30);
+            this.btnRunPrim.TabIndex = 4;
+            this.btnRunPrim.Text = "Run";
+            this.btnRunPrim.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnRunPrim.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnRunPrim.UseVisualStyleBackColor = true;
+            this.btnRunPrim.Click += new System.EventHandler(this.btnRunPrim_Click);
+            // 
+            // btnRunStepPrim
+            // 
+            this.btnRunStepPrim.ForeColor = System.Drawing.Color.Black;
+            this.btnRunStepPrim.Image = global::Dijkstra_Demo.Properties.Resources.Skip;
+            this.btnRunStepPrim.Location = new System.Drawing.Point(178, 26);
+            this.btnRunStepPrim.Name = "btnRunStepPrim";
+            this.btnRunStepPrim.Size = new System.Drawing.Size(148, 30);
+            this.btnRunStepPrim.TabIndex = 6;
+            this.btnRunStepPrim.Text = "Run Step";
+            this.btnRunStepPrim.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnRunStepPrim.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.toolTip1.SetToolTip(this.btnRunStepPrim, "Only for single Point to single Point");
+            this.btnRunStepPrim.UseVisualStyleBackColor = true;
+            this.btnRunStepPrim.Click += new System.EventHandler(this.btnRunStepPrim_Click);
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.label14);
+            this.groupBox2.Controls.Add(this.cbStartVertex);
+            this.groupBox2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.groupBox2.Location = new System.Drawing.Point(6, 3);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(570, 100);
+            this.groupBox2.TabIndex = 9;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Choose Point";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.ForeColor = System.Drawing.Color.Black;
+            this.label14.Location = new System.Drawing.Point(15, 31);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(62, 15);
+            this.label14.TabIndex = 5;
+            this.label14.Text = "Start Point";
+            // 
+            // cbStartVertex
+            // 
+            this.cbStartVertex.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cbStartVertex.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cbStartVertex.FormattingEnabled = true;
+            this.cbStartVertex.Location = new System.Drawing.Point(19, 54);
+            this.cbStartVertex.Name = "cbStartVertex";
+            this.cbStartVertex.Size = new System.Drawing.Size(121, 23);
+            this.cbStartVertex.TabIndex = 0;
             // 
             // toolTip1
             // 
@@ -906,7 +1077,7 @@
             this.label1.ForeColor = System.Drawing.Color.Black;
             this.label1.Location = new System.Drawing.Point(12, 4);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(108, 20);
+            this.label1.Size = new System.Drawing.Size(84, 15);
             this.label1.TabIndex = 12;
             this.label1.Text = "- Graph View -";
             // 
@@ -917,7 +1088,7 @@
             this.label2.ForeColor = System.Drawing.Color.Black;
             this.label2.Location = new System.Drawing.Point(539, 547);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(65, 20);
+            this.label2.Size = new System.Drawing.Size(51, 15);
             this.label2.TabIndex = 13;
             this.label2.Text = "- Table -";
             // 
@@ -948,12 +1119,12 @@
             this.ctMenuStripMatrix.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.copyMatrixToClipboardToolStripMenuItem});
             this.ctMenuStripMatrix.Name = "ctMenuStripMatrix";
-            this.ctMenuStripMatrix.Size = new System.Drawing.Size(247, 28);
+            this.ctMenuStripMatrix.Size = new System.Drawing.Size(209, 26);
             // 
             // copyMatrixToClipboardToolStripMenuItem
             // 
             this.copyMatrixToClipboardToolStripMenuItem.Name = "copyMatrixToClipboardToolStripMenuItem";
-            this.copyMatrixToClipboardToolStripMenuItem.Size = new System.Drawing.Size(246, 24);
+            this.copyMatrixToClipboardToolStripMenuItem.Size = new System.Drawing.Size(208, 22);
             this.copyMatrixToClipboardToolStripMenuItem.Text = "Copy Matrix to Clipboard";
             this.copyMatrixToClipboardToolStripMenuItem.Click += new System.EventHandler(this.copyMatrixToClipboardToolStripMenuItem_Click);
             // 
@@ -964,7 +1135,7 @@
             this.label3.ForeColor = System.Drawing.Color.Black;
             this.label3.Location = new System.Drawing.Point(12, 547);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(74, 20);
+            this.label3.Size = new System.Drawing.Size(57, 15);
             this.label3.TabIndex = 15;
             this.label3.Text = "- Matrix -";
             // 
@@ -974,7 +1145,7 @@
             this.cbxGridLine.ForeColor = System.Drawing.Color.Black;
             this.cbxGridLine.Location = new System.Drawing.Point(643, 17);
             this.cbxGridLine.Name = "cbxGridLine";
-            this.cbxGridLine.Size = new System.Drawing.Size(92, 24);
+            this.cbxGridLine.Size = new System.Drawing.Size(75, 19);
             this.cbxGridLine.TabIndex = 21;
             this.cbxGridLine.Text = "GridLines";
             this.cbxGridLine.UseVisualStyleBackColor = true;
@@ -1007,7 +1178,7 @@
             this.lbStatus.ForeColor = System.Drawing.Color.Black;
             this.lbStatus.Location = new System.Drawing.Point(63, 22);
             this.lbStatus.Name = "lbStatus";
-            this.lbStatus.Size = new System.Drawing.Size(111, 20);
+            this.lbStatus.Size = new System.Drawing.Size(88, 15);
             this.lbStatus.TabIndex = 24;
             this.lbStatus.Text = "View and move";
             // 
@@ -1017,7 +1188,7 @@
             this.label8.ForeColor = System.Drawing.Color.Black;
             this.label8.Location = new System.Drawing.Point(12, 23);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(56, 20);
+            this.label8.Size = new System.Drawing.Size(45, 15);
             this.label8.TabIndex = 23;
             this.label8.Text = "Status: ";
             // 
@@ -1045,26 +1216,26 @@
             this.updateToolStripMenuItem,
             this.copyGraphImageInClipboardToolStripMenuItem});
             this.ctMenustripGrapView.Name = "ctMenustripGrapView";
-            this.ctMenustripGrapView.Size = new System.Drawing.Size(314, 76);
+            this.ctMenustripGrapView.Size = new System.Drawing.Size(261, 70);
             // 
             // clearAllToolStripMenuItem
             // 
             this.clearAllToolStripMenuItem.Name = "clearAllToolStripMenuItem";
-            this.clearAllToolStripMenuItem.Size = new System.Drawing.Size(313, 24);
+            this.clearAllToolStripMenuItem.Size = new System.Drawing.Size(260, 22);
             this.clearAllToolStripMenuItem.Text = "Clear all";
             this.clearAllToolStripMenuItem.Click += new System.EventHandler(this.clearAllToolStripMenuItem_Click);
             // 
             // updateToolStripMenuItem
             // 
             this.updateToolStripMenuItem.Name = "updateToolStripMenuItem";
-            this.updateToolStripMenuItem.Size = new System.Drawing.Size(313, 24);
+            this.updateToolStripMenuItem.Size = new System.Drawing.Size(260, 22);
             this.updateToolStripMenuItem.Text = "Update";
             this.updateToolStripMenuItem.Click += new System.EventHandler(this.updateToolStripMenuItem_Click);
             // 
             // copyGraphImageInClipboardToolStripMenuItem
             // 
             this.copyGraphImageInClipboardToolStripMenuItem.Name = "copyGraphImageInClipboardToolStripMenuItem";
-            this.copyGraphImageInClipboardToolStripMenuItem.Size = new System.Drawing.Size(313, 24);
+            this.copyGraphImageInClipboardToolStripMenuItem.Size = new System.Drawing.Size(260, 22);
             this.copyGraphImageInClipboardToolStripMenuItem.Text = "Copy Graph image to the clipboard";
             this.copyGraphImageInClipboardToolStripMenuItem.Click += new System.EventHandler(this.copyGraphImageInClipboardToolStripMenuItem_Click);
             // 
@@ -1092,7 +1263,7 @@
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.GhostWhite;
@@ -1142,6 +1313,14 @@
             this.tabPage3.ResumeLayout(false);
             this.pnlTested.ResumeLayout(false);
             this.pnlTested.PerformLayout();
+            this.tabPage4.ResumeLayout(false);
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            this.pnlTimeSleep2.ResumeLayout(false);
+            this.pnlTimeSleep2.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ctMenuStripMatrix.ResumeLayout(false);
             this.pnlGraph.ResumeLayout(false);
             this.pnlGraph.PerformLayout();
@@ -1238,6 +1417,19 @@
         private System.Windows.Forms.ComboBox cbDemo;
         private System.Windows.Forms.Button btnClearTested;
         private System.Windows.Forms.ToolStripMenuItem updateToolStripMenuItem;
+        private System.Windows.Forms.TabPage tabPage4;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.RichTextBox tbLogPrim;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Panel pnlTimeSleep2;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TextBox txtSleepTime;
+        private System.Windows.Forms.CheckBox cbxTimeSleep2;
+        private System.Windows.Forms.Button btnRunPrim;
+        private System.Windows.Forms.Button btnRunStepPrim;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.ComboBox cbStartVertex;
     }
 }
 

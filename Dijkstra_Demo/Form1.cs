@@ -13,6 +13,7 @@ namespace Dijkstra_Demo
         MyGraphic myGraphic = new MyGraphic();
         MyGraph myGraph = new MyGraph();
         Dijkstra dijkstra = new Dijkstra();
+        Prim prim = new Prim();
 
         private int i_th = 1;
         private int grid_gap = 30;
@@ -20,6 +21,7 @@ namespace Dijkstra_Demo
         private bool isPoint = false;
         private bool isDrawing = false;
         private bool dijkstra_step = true;
+        private bool prim_step = true;
         private bool isTimeSleep = true;
         private bool isPaths = true;
         private bool isColor = false;        
@@ -227,6 +229,7 @@ namespace Dijkstra_Demo
                     myGraph.MatrixCreate(lvMatrixView, i_th, ChangeColorBrightness(Color.LightGreen, 0.6F));
                     //Thêm giá trị vào danh sách combobox 
                     cbStartPoint.Items.Add(i_th.ToString());
+                    cbStartVertex.Items.Add(i_th.ToString());
                     cbEndPoint.Items.Add(i_th.ToString());
                     //Hiển thị log
                     txbLogs.Text += "[" + DateTime.Now.Hour + ":" + DateTime.Now.Minute + ":" + DateTime.Now.Second + "] Point " + i_th.ToString() + " (" + e.X.ToString() + ", " + e.Y.ToString() + ")" + " add!\n";
@@ -578,6 +581,8 @@ namespace Dijkstra_Demo
             pnlGraph.Enabled = true;
             pnlDijkstra.Enabled = true;
             pnlTested.Enabled = true;
+            btnRunPrim.Enabled = true;
+            btnRunStepPrim.Enabled = true;
         }
 
         //Sự kiện thay đổi giá trị của rbtnDirected (chọn chế độ đồ thị có hướng)
@@ -588,6 +593,8 @@ namespace Dijkstra_Demo
             pnlGraph.Enabled = true;
             pnlDijkstra.Enabled = true;
             pnlTested.Enabled = true;
+            btnRunPrim.Enabled = false;
+            btnRunStepPrim.Enabled = false;
         }
 
         //Sự kiện chọn sử dụng đồ thị mẫu
@@ -608,6 +615,7 @@ namespace Dijkstra_Demo
                 string paths = @"Demo\" + (cbDemo.SelectedIndex + 1).ToString() + ".txt";
                 //Đọc file lưa đồ thị
                 myGraph.ReadGraph(Pt, segment, lvMatrixView, ChangeColorBrightness(Color.LightGreen, 0.6F), rbtnDirected, rbtnUnDirected, cbStartPoint, cbEndPoint, out i_th, paths);
+                myGraph.ReadGraph(Pt, segment, lvMatrixView, ChangeColorBrightness(Color.LightGreen, 0.6F), rbtnDirected, rbtnUnDirected, cbStartVertex, cbEndPoint, out i_th, paths);
                 //Refresh lại list chứa đường đi ngắn nhất dijkstra
                 segment_dijkstra.Clear();
                 //Refresh lại bảng dijkstra chạy tay
@@ -668,6 +676,8 @@ namespace Dijkstra_Demo
             {
                 //Gọi hàm lưu đồ thị
                 myGraph.ReadGraph(Pt, segment, lvMatrixView, ChangeColorBrightness(Color.LightGreen, 0.6F), rbtnDirected, rbtnUnDirected, cbStartPoint, cbEndPoint, out i_th, MyOpenFileDialog.FileName);
+                myGraph.ReadGraph(Pt, segment, lvMatrixView, ChangeColorBrightness(Color.LightGreen, 0.6F), rbtnDirected, rbtnUnDirected, cbStartVertex, cbEndPoint, out i_th, MyOpenFileDialog.FileName);
+
                 txbLogs.Text += "[" + DateTime.Now.Hour + ":" + DateTime.Now.Minute + ":" + DateTime.Now.Second + "] Graph open!\n";
                 lvTableView.Clear();
                 segment_dijkstra.Clear();
@@ -945,6 +955,128 @@ namespace Dijkstra_Demo
         }
         #endregion
 
+        #region PrimSolve
+        private void cbxTimeSleep2_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbxTimeSleep2.Checked) { pnlTimeSleep2.Enabled = true; btnRunStepPrim.Enabled = false; }
+            else { pnlTimeSleep2.Enabled = false; btnRunStepPrim.Enabled = true; }
+        }
+
+        private void btnRunPrim_Click(object sender, EventArgs e)
+        {
+            //Nếu đều đã chọn giá trị bắt đầu
+            tbLogPrim.Text = "";
+            var tree = prim.PrimAll(lvMatrixView, lvTableView, i_th, cbStartVertex.SelectedIndex, out isPaths, Pt, segment, segment_dijkstra);
+            foreach(var edge in tree)
+            {
+                tbLogPrim.Text += (edge.S + 1) + "..." + (edge.E + 1) + "..." + edge.W + "\n";
+            }
+            /*if (cbStartVertex.SelectedIndex != -1)
+            {
+                //Nếu có sử dụng timesleep
+                if (cbxTimeSleep2.Checked)
+                {
+                    if (btnRunPrim.Text == "Run")
+                    {
+                        //Kiểm tra tính hợp lệ của giá trị timesleep
+                        try
+                        {
+                            int timesleep = Convert.ToInt16(txbTimeSleep.Text);
+                            if (timesleep >= 0)
+                            {
+                                //Thiết lập tên button và hình ảnh
+                                btnRunPrim.Text = "Stop";
+                                btnRunPrim.Image = Properties.Resources.Pause;
+                                //Tạo vòng lặp
+                                isTimeSleep = true;
+                                //Tạo luồng xử lý riêng
+                                new Thread(
+                                    () =>
+                                    {
+                                        while (isTimeSleep)
+                                        {
+                                            PrimStep();
+                                            Thread.Sleep(timesleep);
+                                        }
+                                    }
+                                    )
+                                { IsBackground = true }.Start();
+                            }
+                            else MessageBox.Show("Time Sleep not correct!", "Logs", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                        catch (Exception)
+                        {
+                            MessageBox.Show("Time Sleep not correct!", "Logs", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                    else
+                    {
+                        //Trả về mặc định khi nhấn lần nữa
+                        btnRunPrim.Text = "Run";
+                        btnRunPrim.Image = Properties.Resources.Play;
+                        prim_step = true;
+                        isTimeSleep = false;
+                        segment_dijkstra_save.Clear();
+                        segment_dijkstra_Review_tmp.Clear();
+                        segment_dijkstra_save_tmp.Clear();
+                        segment_dijkstra_Review.Clear();
+                        picGraphView.Invalidate();
+                    }
+                }
+                //Nếu không sử dụng timesleep
+                else
+                {
+                    try
+                    {
+                        //Chạy hàm dijkstra cho all hoặc đơn lẻ
+                        if (cbEndPoint.SelectedIndex == 0) prim.PrimAll(lvMatrixView, lvTableView, i_th, cbStartPoint.SelectedIndex, out isPaths, Pt, segment, segment_dijkstra);
+                        else prim.PrimSimple(pesude, lvMatrixView, lvTableView, i_th, cbStartPoint.SelectedIndex, cbEndPoint.SelectedIndex - 1, out isPaths, Pt, segment, segment_dijkstra, segment_dijkstra_save_tmp, segment_dijkstra_Review_tmp);
+                        //Tạo bảng
+                        myGraph.TableView(lvTableView, ChangeColorBrightness(Color.LightSkyBlue, 0.7F));
+                        if (isPaths)
+                        {
+                            segment_dijkstra_Review_tmp.Clear();
+                            segment_dijkstra_save_tmp.Clear();
+                            segment_dijkstra_Review.Clear();
+                            segment_dijkstra_save.Clear();
+                            picGraphView.Invalidate();
+                        }
+                        else MessageBox.Show("Error!", "Logs", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    catch (Exception)
+                    {
+                        MessageBox.Show("Error!", "Logs", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+            else MessageBox.Show("Start point or End point isn't choose!", "Logs", MessageBoxButtons.OK, MessageBoxIcon.Error);*/
+        }
+        
+        private void btnRunStepPrim_Click(object sender, EventArgs e)
+        {
+            //Kiểm tra đã chọn điểm bắt đàu chưa
+            if (cbStartVertex.SelectedIndex != -1)
+            {
+                try
+                {
+                    if (isPaths) PrimStep();
+                    else MessageBox.Show("Error!", "Logs", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Error!", "Logs", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else MessageBox.Show("Start point or End point isn't choose!", "Logs", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        private void PrimStep()
+        {
+
+        }
+        #endregion
+
+
         //Hàm chỉnh độ sáng màu sắc
         //Hàm này copy trên mạng :D
         public static Color ChangeColorBrightness(Color color, float correctionFactor)
@@ -979,6 +1111,8 @@ namespace Dijkstra_Demo
             {
                 if (wc.Value) rbtnDirected.Checked = true;
                 else rbtnUnDirected.Checked = true;
+                btnRunPrim.Enabled = !wc.Value;
+                btnRunStepPrim.Enabled = !wc.Value;
                 this.Enabled = true;
             }
             else this.Close(); //Tắt form nhỏ là tắt luôn chương trình       
@@ -1233,6 +1367,13 @@ namespace Dijkstra_Demo
             //Hiệu ứng thử nghiệm xíu :D
             WinAPI.AnimateWindow(this.Handle, 50, WinAPI.CENTER);
             cbxGridLine.Checked = true;
-        } 
+        }
+
+        private void richTextBox1_TextChanged(object sender, EventArgs e)
+        {
+          
+        }
+
+        
     }
 }
