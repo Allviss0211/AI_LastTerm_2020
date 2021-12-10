@@ -33,7 +33,6 @@ E:\Course\AI_LastTerm_2020\Dijkstra_Demo\obj\Debug\Dijkstra_Demo.About.resources
 E:\Course\AI_LastTerm_2020\Dijkstra_Demo\obj\Debug\Dijkstra_Demo.DijkstraFibonnaciHeaps.resources
 E:\Course\AI_LastTerm_2020\Dijkstra_Demo\obj\Debug\Dijkstra_Demo.DijkstraHeap.resources
 E:\Course\AI_LastTerm_2020\Dijkstra_Demo\obj\Debug\Dijkstra_Demo.DijkstraNormal.resources
-E:\Course\AI_LastTerm_2020\Dijkstra_Demo\obj\Debug\Dijkstra_Demo.Form1.resources
 E:\Course\AI_LastTerm_2020\Dijkstra_Demo\obj\Debug\Dijkstra_Demo.Guide.resources
 E:\Course\AI_LastTerm_2020\Dijkstra_Demo\obj\Debug\Dijkstra_Demo.Properties.Resources.resources
 E:\Course\AI_LastTerm_2020\Dijkstra_Demo\obj\Debug\Dijkstra_Demo.csproj.GenerateResource.cache
@@ -41,3 +40,4 @@ E:\Course\AI_LastTerm_2020\Dijkstra_Demo\obj\Debug\Dijkstra_Demo.csproj.CoreComp
 E:\Course\AI_LastTerm_2020\Dijkstra_Demo\obj\Debug\Dijkstra_Demo.exe
 E:\Course\AI_LastTerm_2020\Dijkstra_Demo\obj\Debug\Dijkstra_Demo.pdb
 E:\Course\AI_LastTerm_2020\Dijkstra_Demo\obj\Debug\Dijkstra_Demo.PseudoCode.resources
+E:\Course\AI_LastTerm_2020\Dijkstra_Demo\obj\Debug\Dijkstra_Demo.Form1.resources

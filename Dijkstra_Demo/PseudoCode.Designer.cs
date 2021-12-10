@@ -61,16 +61,18 @@ namespace Dijkstra_Demo {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 1  S ← empty sequence
-        ///2  u ← target
-        ///3  if prev[u] is defined or u = source:          // Do something only if the vertex is reachable
-        ///4      while u is defined:                       // Construct the shortest path with a stack S
-        ///5              insert u at the beginning of S        // Push the vertex onto the stack
-        ///6              u ← prev[u]                           // Traverse from target to source.
+        ///   Looks up a localized string similar to      while Q is not empty:
+        ///         u ← vertex in Q with min dist[u]             
+        ///         remove u from Q
+        ///          for each neighbor v of u still in Q:
+        ///              alt ← dist[u] + length(u, v)
+        ///              if alt &lt; dist[v]:              
+        ///                  dist[v] ← alt
+        ///                  prev[v] ← u.
         /// </summary>
-        internal static string PeseudoCode {
+        internal static string pseudoCode {
             get {
-                return ResourceManager.GetString("PeseudoCode", resourceCulture);
+                return ResourceManager.GetString("PseudoCode", resourceCulture);
             }
         }
     }
