@@ -965,13 +965,8 @@ namespace Dijkstra_Demo
         private void btnRunPrim_Click(object sender, EventArgs e)
         {
             //Nếu đều đã chọn giá trị bắt đầu
-            tbLogPrim.Text = "";
-            var tree = prim.PrimAll(lvMatrixView, lvTableView, i_th, cbStartVertex.SelectedIndex, out isPaths, Pt, segment, segment_dijkstra);
-            foreach(var edge in tree)
-            {
-                tbLogPrim.Text += (edge.S + 1) + "..." + (edge.E + 1) + "..." + edge.W + "\n";
-            }
-            /*if (cbStartVertex.SelectedIndex != -1)
+           
+            if (cbStartVertex.SelectedIndex != -1)
             {
                 //Nếu có sử dụng timesleep
                 if (cbxTimeSleep2.Checked)
@@ -1028,9 +1023,7 @@ namespace Dijkstra_Demo
                 {
                     try
                     {
-                        //Chạy hàm dijkstra cho all hoặc đơn lẻ
-                        if (cbEndPoint.SelectedIndex == 0) prim.PrimAll(lvMatrixView, lvTableView, i_th, cbStartPoint.SelectedIndex, out isPaths, Pt, segment, segment_dijkstra);
-                        else prim.PrimSimple(pesude, lvMatrixView, lvTableView, i_th, cbStartPoint.SelectedIndex, cbEndPoint.SelectedIndex - 1, out isPaths, Pt, segment, segment_dijkstra, segment_dijkstra_save_tmp, segment_dijkstra_Review_tmp);
+                        prim.PrimAll(lvMatrixView, lvTableView, i_th, cbStartVertex.SelectedIndex, out isPaths, Pt, segment, segment_dijkstra);
                         //Tạo bảng
                         myGraph.TableView(lvTableView, ChangeColorBrightness(Color.LightSkyBlue, 0.7F));
                         if (isPaths)
@@ -1041,15 +1034,15 @@ namespace Dijkstra_Demo
                             segment_dijkstra_save.Clear();
                             picGraphView.Invalidate();
                         }
-                        else MessageBox.Show("Error!", "Logs", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        else MessageBox.Show("Error! isPaths", "Logs", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
-                    catch (Exception)
+                    catch (Exception excep)
                     {
-                        MessageBox.Show("Error!", "Logs", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Error! " + excep.Message, "Logs", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
             }
-            else MessageBox.Show("Start point or End point isn't choose!", "Logs", MessageBoxButtons.OK, MessageBoxIcon.Error);*/
+            else MessageBox.Show("Start point or End point isn't choose!", "Logs", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
         
         private void btnRunStepPrim_Click(object sender, EventArgs e)

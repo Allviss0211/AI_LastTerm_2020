@@ -132,7 +132,7 @@ namespace Dijkstra_Demo
         }
 
         //Hàm dijkstra chạy từ 1 đểm đến tất cả
-        public List<Form1.Segment> PrimAll(ListView lv, ListView lvtable, int n, int s, out bool isPath, List<Point> pt, List<Form1.Segment> segment, List<Form1.Segment> tmp)
+        public void PrimAll(ListView lv, ListView lvtable, int n, int s, out bool isPath, List<Point> pt, List<Form1.Segment> segment, List<Form1.Segment> tmp)
         {
             tmp.Clear();
 
@@ -141,32 +141,41 @@ namespace Dijkstra_Demo
             List<Form1.Segment> tree = new List<Form1.Segment>();
 
             int oo = 99999999;
-            List<int> length = new List<int>();
+            List<Form1.Segment> segment_tmp = segment;
             List<int> last = new List<int>();
             List<bool> visited = new List<bool>();
             isPath = true;
 
             last.Add(s);
-           
+
+            for (int i = 0; i < n; ++i)
+            {
+                //length.Add(oo);
+                //last.Add(-1);
+                visited.Add(false);
+            }
+
             //Bắt đàu chạy
             while (last.Count < pt.Count)
             {
-                var edges = segment.Where(p => (last.Contains(p.S) && !last.Contains(p.E)) || (last.Contains(p.E) && !last.Contains(p.S)));
+                var edges = segment_tmp.Where(p => (last.Contains(p.S) && !last.Contains(p.E)) || (last.Contains(p.E) && !last.Contains(p.S)));
                 var minw = edges.Min(p => Int32.Parse(p.W));
                 var minEdge = edges.Where(p => p.W == minw.ToString()).First();
-                tree.Add(minEdge);
-                segment.Remove(minEdge);
+                tmp.Add(minEdge);
+       
+                segment_tmp.Remove(minEdge);
+                
                 if (!last.Contains(minEdge.S))
                 {
                     last.Add(minEdge.S);
+                    visited[minEdge.S] = true;
                 }
                 if (!last.Contains(minEdge.E))
                 {
                     last.Add(minEdge.E);
+                    visited[minEdge.E] = true;
                 }
             }
-
-            return tree;
         }
 
 
