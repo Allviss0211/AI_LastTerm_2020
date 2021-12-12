@@ -59,6 +59,8 @@
             this.rbtnDirected = new System.Windows.Forms.RadioButton();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.pnlDijkstra = new System.Windows.Forms.Panel();
+            this.gboxCode = new System.Windows.Forms.GroupBox();
+            this.txbCode = new System.Windows.Forms.RichTextBox();
             this.gboxRun = new System.Windows.Forms.GroupBox();
             this.pnlTimeSleep = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
@@ -137,6 +139,7 @@
             this.gboxType.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.pnlDijkstra.SuspendLayout();
+            this.gboxCode.SuspendLayout();
             this.gboxRun.SuspendLayout();
             this.pnlTimeSleep.SuspendLayout();
             this.gboxChoosePoint.SuspendLayout();
@@ -163,7 +166,7 @@
             this.helpToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1342, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1308, 28);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -289,7 +292,7 @@
             this.tabControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(590, 535);
+            this.tabControl1.Size = new System.Drawing.Size(555, 539);
             this.tabControl1.TabIndex = 1;
             // 
             // tabPage1
@@ -300,7 +303,7 @@
             this.tabPage1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.tabPage1.Size = new System.Drawing.Size(582, 507);
+            this.tabPage1.Size = new System.Drawing.Size(547, 506);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Graph";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -312,7 +315,7 @@
             this.pnlChoose.Enabled = false;
             this.pnlChoose.Location = new System.Drawing.Point(0, 103);
             this.pnlChoose.Name = "pnlChoose";
-            this.pnlChoose.Size = new System.Drawing.Size(576, 396);
+            this.pnlChoose.Size = new System.Drawing.Size(541, 403);
             this.pnlChoose.TabIndex = 3;
             // 
             // gboxLogs
@@ -321,7 +324,7 @@
             this.gboxLogs.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.gboxLogs.Location = new System.Drawing.Point(6, 90);
             this.gboxLogs.Name = "gboxLogs";
-            this.gboxLogs.Size = new System.Drawing.Size(567, 306);
+            this.gboxLogs.Size = new System.Drawing.Size(532, 313);
             this.gboxLogs.TabIndex = 3;
             this.gboxLogs.TabStop = false;
             this.gboxLogs.Text = "Logs";
@@ -330,10 +333,10 @@
             // 
             this.txbLogs.BackColor = System.Drawing.Color.White;
             this.txbLogs.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txbLogs.Location = new System.Drawing.Point(6, 19);
+            this.txbLogs.Location = new System.Drawing.Point(6, 22);
             this.txbLogs.Name = "txbLogs";
             this.txbLogs.ReadOnly = true;
-            this.txbLogs.Size = new System.Drawing.Size(555, 281);
+            this.txbLogs.Size = new System.Drawing.Size(526, 284);
             this.txbLogs.TabIndex = 0;
             this.txbLogs.Text = "Welcome! \n";
             // 
@@ -345,7 +348,7 @@
             this.gboxChooseMethod.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.gboxChooseMethod.Location = new System.Drawing.Point(6, 12);
             this.gboxChooseMethod.Name = "gboxChooseMethod";
-            this.gboxChooseMethod.Size = new System.Drawing.Size(567, 72);
+            this.gboxChooseMethod.Size = new System.Drawing.Size(532, 72);
             this.gboxChooseMethod.TabIndex = 3;
             this.gboxChooseMethod.TabStop = false;
             this.gboxChooseMethod.Text = "Choose Method";
@@ -416,7 +419,7 @@
             this.gboxType.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.gboxType.Location = new System.Drawing.Point(6, 8);
             this.gboxType.Name = "gboxType";
-            this.gboxType.Size = new System.Drawing.Size(570, 92);
+            this.gboxType.Size = new System.Drawing.Size(535, 92);
             this.gboxType.TabIndex = 2;
             this.gboxType.TabStop = false;
             this.gboxType.Text = "Graph Type";
@@ -460,21 +463,44 @@
             this.tabPage2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.tabPage2.Size = new System.Drawing.Size(582, 507);
+            this.tabPage2.Size = new System.Drawing.Size(547, 506);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Dijkstra";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // pnlDijkstra
             // 
+            this.pnlDijkstra.Controls.Add(this.gboxCode);
             this.pnlDijkstra.Controls.Add(this.gboxRun);
             this.pnlDijkstra.Controls.Add(this.gboxChoosePoint);
             this.pnlDijkstra.Controls.Add(this.gboxPath);
             this.pnlDijkstra.Enabled = false;
             this.pnlDijkstra.Location = new System.Drawing.Point(3, 3);
             this.pnlDijkstra.Name = "pnlDijkstra";
-            this.pnlDijkstra.Size = new System.Drawing.Size(576, 496);
+            this.pnlDijkstra.Size = new System.Drawing.Size(538, 500);
             this.pnlDijkstra.TabIndex = 23;
+            // 
+            // gboxCode
+            // 
+            this.gboxCode.Controls.Add(this.txbCode);
+            this.gboxCode.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.gboxCode.Location = new System.Drawing.Point(3, 338);
+            this.gboxCode.Name = "gboxCode";
+            this.gboxCode.Size = new System.Drawing.Size(532, 162);
+            this.gboxCode.TabIndex = 6;
+            this.gboxCode.TabStop = false;
+            this.gboxCode.Text = "PseudoCode";
+            // 
+            // txbCode
+            // 
+            this.txbCode.BackColor = System.Drawing.Color.White;
+            this.txbCode.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txbCode.Location = new System.Drawing.Point(6, 22);
+            this.txbCode.Name = "txbCode";
+            this.txbCode.ReadOnly = true;
+            this.txbCode.Size = new System.Drawing.Size(520, 130);
+            this.txbCode.TabIndex = 1;
+            this.txbCode.Text = "";
             // 
             // gboxRun
             // 
@@ -485,7 +511,7 @@
             this.gboxRun.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.gboxRun.Location = new System.Drawing.Point(3, 109);
             this.gboxRun.Name = "gboxRun";
-            this.gboxRun.Size = new System.Drawing.Size(570, 103);
+            this.gboxRun.Size = new System.Drawing.Size(532, 103);
             this.gboxRun.TabIndex = 7;
             this.gboxRun.TabStop = false;
             this.gboxRun.Text = "Run Method";
@@ -570,7 +596,7 @@
             this.gboxChoosePoint.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.gboxChoosePoint.Location = new System.Drawing.Point(3, 3);
             this.gboxChoosePoint.Name = "gboxChoosePoint";
-            this.gboxChoosePoint.Size = new System.Drawing.Size(570, 100);
+            this.gboxChoosePoint.Size = new System.Drawing.Size(532, 100);
             this.gboxChoosePoint.TabIndex = 3;
             this.gboxChoosePoint.TabStop = false;
             this.gboxChoosePoint.Text = "Choose Point";
@@ -636,19 +662,19 @@
             this.gboxPath.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.gboxPath.Location = new System.Drawing.Point(3, 218);
             this.gboxPath.Name = "gboxPath";
-            this.gboxPath.Size = new System.Drawing.Size(570, 278);
+            this.gboxPath.Size = new System.Drawing.Size(532, 114);
             this.gboxPath.TabIndex = 5;
             this.gboxPath.TabStop = false;
-            this.gboxPath.Text = "PseudoCode";
+            this.gboxPath.Text = "Path";
             // 
             // txbLogDijkstra
             // 
             this.txbLogDijkstra.BackColor = System.Drawing.Color.White;
             this.txbLogDijkstra.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txbLogDijkstra.Location = new System.Drawing.Point(6, 18);
+            this.txbLogDijkstra.Location = new System.Drawing.Point(6, 22);
             this.txbLogDijkstra.Name = "txbLogDijkstra";
             this.txbLogDijkstra.ReadOnly = true;
-            this.txbLogDijkstra.Size = new System.Drawing.Size(558, 254);
+            this.txbLogDijkstra.Size = new System.Drawing.Size(520, 84);
             this.txbLogDijkstra.TabIndex = 1;
             this.txbLogDijkstra.Text = "";
             // 
@@ -657,7 +683,7 @@
             this.tabPage3.Controls.Add(this.pnlTested);
             this.tabPage3.Location = new System.Drawing.Point(4, 24);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(582, 507);
+            this.tabPage3.Size = new System.Drawing.Size(547, 506);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Tested";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -675,7 +701,7 @@
             this.pnlTested.Enabled = false;
             this.pnlTested.Location = new System.Drawing.Point(3, 3);
             this.pnlTested.Name = "pnlTested";
-            this.pnlTested.Size = new System.Drawing.Size(576, 496);
+            this.pnlTested.Size = new System.Drawing.Size(541, 500);
             this.pnlTested.TabIndex = 0;
             // 
             // btnClearTested
@@ -709,7 +735,7 @@
             this.fpnlTested.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.fpnlTested.Location = new System.Drawing.Point(7, 118);
             this.fpnlTested.Name = "fpnlTested";
-            this.fpnlTested.Size = new System.Drawing.Size(566, 375);
+            this.fpnlTested.Size = new System.Drawing.Size(531, 379);
             this.fpnlTested.TabIndex = 7;
             this.fpnlTested.WrapContents = false;
             // 
@@ -717,7 +743,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.ForeColor = System.Drawing.Color.Black;
-            this.label10.Location = new System.Drawing.Point(175, 32);
+            this.label10.Location = new System.Drawing.Point(81, 32);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(25, 15);
             this.label10.TabIndex = 5;
@@ -750,13 +776,13 @@
             // 
             this.txbStarting.Location = new System.Drawing.Point(7, 29);
             this.txbStarting.Name = "txbStarting";
-            this.txbStarting.Size = new System.Drawing.Size(162, 23);
+            this.txbStarting.Size = new System.Drawing.Size(68, 27);
             this.txbStarting.TabIndex = 2;
             this.toolTip1.SetToolTip(this.txbStarting, "One Point Starting");
             // 
             // txbListLocation
             // 
-            this.txbListLocation.Location = new System.Drawing.Point(212, 29);
+            this.txbListLocation.Location = new System.Drawing.Point(118, 29);
             this.txbListLocation.Name = "txbListLocation";
             this.txbListLocation.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.txbListLocation.Size = new System.Drawing.Size(282, 23);
@@ -1063,9 +1089,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lvTableView.FullRowSelect = true;
             this.lvTableView.HideSelection = false;
-            this.lvTableView.Location = new System.Drawing.Point(543, 570);
+            this.lvTableView.Location = new System.Drawing.Point(498, 572);
             this.lvTableView.Name = "lvTableView";
-            this.lvTableView.Size = new System.Drawing.Size(786, 206);
+            this.lvTableView.Size = new System.Drawing.Size(797, 204);
             this.lvTableView.TabIndex = 4;
             this.lvTableView.UseCompatibleStateImageBehavior = false;
             this.lvTableView.View = System.Windows.Forms.View.Details;
@@ -1086,7 +1112,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(539, 547);
+            this.label2.Location = new System.Drawing.Point(494, 547);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(51, 15);
             this.label2.TabIndex = 13;
@@ -1101,9 +1127,9 @@
             this.lvMatrixView.ContextMenuStrip = this.ctMenuStripMatrix;
             this.lvMatrixView.FullRowSelect = true;
             this.lvMatrixView.HideSelection = false;
-            this.lvMatrixView.Location = new System.Drawing.Point(12, 570);
+            this.lvMatrixView.Location = new System.Drawing.Point(12, 572);
             this.lvMatrixView.Name = "lvMatrixView";
-            this.lvMatrixView.Size = new System.Drawing.Size(525, 206);
+            this.lvMatrixView.Size = new System.Drawing.Size(480, 204);
             this.lvMatrixView.TabIndex = 14;
             this.lvMatrixView.UseCompatibleStateImageBehavior = false;
             this.lvMatrixView.View = System.Windows.Forms.View.Details;
@@ -1133,7 +1159,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(12, 547);
+            this.label3.Location = new System.Drawing.Point(9, 547);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(57, 15);
             this.label3.TabIndex = 15;
@@ -1268,7 +1294,7 @@
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.GhostWhite;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.ClientSize = new System.Drawing.Size(1342, 788);
+            this.ClientSize = new System.Drawing.Size(1308, 788);
             this.Controls.Add(this.pnlGraph);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.lvMatrixView);
@@ -1303,6 +1329,7 @@
             this.gboxType.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.pnlDijkstra.ResumeLayout(false);
+            this.gboxCode.ResumeLayout(false);
             this.gboxRun.ResumeLayout(false);
             this.gboxRun.PerformLayout();
             this.pnlTimeSleep.ResumeLayout(false);
@@ -1417,13 +1444,15 @@
         private System.Windows.Forms.ComboBox cbDemo;
         private System.Windows.Forms.Button btnClearTested;
         private System.Windows.Forms.ToolStripMenuItem updateToolStripMenuItem;
+        private System.Windows.Forms.GroupBox gboxCode;
+        private System.Windows.Forms.RichTextBox txbCode;
         private System.Windows.Forms.TabPage tabPage4;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.RichTextBox tbLogPrim;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Panel pnlTimeSleep2;
-        private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox txtSleepTime;
+        private System.Windows.Forms.Label label11;
         private System.Windows.Forms.CheckBox cbxTimeSleep2;
         private System.Windows.Forms.Button btnRunPrim;
         private System.Windows.Forms.Button btnRunStepPrim;
