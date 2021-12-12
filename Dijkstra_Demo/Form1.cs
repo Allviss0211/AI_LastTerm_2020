@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Linq;
 using System.Threading;
 using System.Windows.Forms;
 
@@ -24,13 +25,15 @@ namespace Dijkstra_Demo
         private bool prim_step = true;
         private bool isTimeSleep = true;
         private bool isPaths = true;
-        private bool isColor = false;        
+        private bool isColor = false;
 
         Point p = new Point(0, 0);
+        List<int> prim_review = new List<int>();
         List<Point> Pt = new List<Point>();
         List<PointColor> PtColor = new List<PointColor>();
         List<Segment> segment = new List<Segment>();
         List<Segment> segment_dijkstra = new List<Segment>();
+        List<Segment> segment_prim = new List<Segment>();
         List<int> segment_dijkstra_save = new List<int>();
         List<int> segment_dijkstra_save_tmp = new List<int>();
         List<List<Segment>> segment_dijkstra_Review_tmp = new List<List<Segment>>();
@@ -69,8 +72,11 @@ namespace Dijkstra_Demo
         public Form1()
         {
             InitializeComponent();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PseudoCode));
-            this.txbCode.Text = resources.GetString("PseudoCode");
+            System.ComponentModel.ComponentResourceManager resources1 = new System.ComponentModel.ComponentResourceManager(typeof(PseudoCode));
+            System.ComponentModel.ComponentResourceManager resources2 = new System.ComponentModel.ComponentResourceManager(typeof(PrimCode));
+
+            this.txbCode.Text = resources1.GetString("PseudoCode");
+            this.tbLogPrim.Text = resources2.GetString("PrimCode");
             //Chỉnh size Maximum full màn hình
             this.MaximumSize = new Size(this.Width, Screen.PrimaryScreen.Bounds.Height);
             //Dành cho thread
@@ -415,24 +421,24 @@ namespace Dijkstra_Demo
             {
                 foreach (int i in segment_dijkstra_save)
                     myGraphic.DrawPoint(e.Graphics, Pt[i], (i + 1).ToString(), 5, Brushes.Yellow, this.Font);
-                selectedStep(1);
+                selectedStep(txbCode, 1);
                 Thread.Sleep(1000);
-                unSelectedStep();
-                selectedStep(3); 
+                unSelectedStep(txbCode);
+                selectedStep(txbCode, 3); 
                 Thread.Sleep(500);
-                unSelectedStep();
-                selectedStep(4);
+                unSelectedStep(txbCode);
+                selectedStep(txbCode, 4);
                 Thread.Sleep(500);
-                unSelectedStep();
-                selectedStep(5);
+                unSelectedStep(txbCode);
+                selectedStep(txbCode, 5);
                 Thread.Sleep(500);
-                unSelectedStep();
-                selectedStep(6);
+                unSelectedStep(txbCode);
+                selectedStep(txbCode, 6);
                 Thread.Sleep(500);
-                unSelectedStep();
-                selectedStep(7);
+                unSelectedStep(txbCode);
+                selectedStep(txbCode, 7);
             }
-
+            
             //segment_dijkstra_save_tmp có số phần từ bằng 0 thì vẽ ra đường đi ngắn nhất
             if (segment_dijkstra_save_tmp.Count == 0)
             {
@@ -448,6 +454,17 @@ namespace Dijkstra_Demo
                         myGraphic.DrawPoint(e.Graphics, Pt[i.S], (i.S + 1).ToString(), 5, Brushes.Yellow, this.Font);
                         myGraphic.DrawPoint(e.Graphics, Pt[i.E], (i.E + 1).ToString(), 5, Brushes.Yellow, this.Font);
                     }
+                    if(segment_prim.Count != 0)
+                    {
+                        for(int i = 1; i< 6; i++)
+                        {
+                            selectedStep(tbLogPrim, i);
+                            Thread.Sleep(300);
+                            unSelectedStep(tbLogPrim);
+                        }
+                        selectedStep(tbLogPrim, 5);
+
+                    }
                 }
             }
 
@@ -459,16 +476,16 @@ namespace Dijkstra_Demo
             }
             
         }
-        public void selectedStep(int step)
+        public void selectedStep(RichTextBox tbt,int step)
         {
-            string[] words = this.txbCode.Text.Split('\n');
-            this.txbCode.SelectionStart = this.txbCode.Find(words[step]);
-            this.txbCode.SelectionLength = words[step].Length;
-            this.txbCode.Focus();
+            string[] words = tbt.Text.Split('\n');
+            tbt.SelectionStart = tbt.Find(words[step]);
+            tbt.SelectionLength = words[step].Length;
+            tbt.Focus();
         }
-        public void unSelectedStep()
+        public void unSelectedStep(RichTextBox tbt)
         {
-            this.txbCode.DeselectAll();
+            tbt.DeselectAll();
         }
         #endregion
 
@@ -547,6 +564,7 @@ namespace Dijkstra_Demo
             picGraphView.Invalidate();
             txbLogs.Clear();
             txbLogDijkstra.Clear();
+            tbPathPrim.Clear();
             txbTimeSleep.Clear();
             cbxTimeSleep.Checked = false;
             lvMatrixView.GridLines = false;
@@ -648,6 +666,7 @@ namespace Dijkstra_Demo
                 lvTableView.Clear();
                 //Refresh lại hiển thị đường đi dijkstra
                 txbLogDijkstra.Clear();
+                tbPathPrim.Clear();
                 //hiển thị logs
                 txbLogs.Text += "Graph demo " + (cbDemo.SelectedIndex + 1).ToString() + "\n";
 
@@ -679,6 +698,7 @@ namespace Dijkstra_Demo
                 //Gọi hàm mở đồ thị
                 myGraph.SaveGraph(Pt, segment, rbtnDirected.Checked, MySaveFileDialog.FileName);
                 txbLogDijkstra.Clear();
+                tbPathPrim.Clear();
                 txbLogs.Text += "[" + DateTime.Now.Hour + ":" + DateTime.Now.Minute + ":" + DateTime.Now.Second + "] Graph save!\n";
             }
         }
@@ -738,6 +758,7 @@ namespace Dijkstra_Demo
             PtColor.Clear();
             myGraph.MatrixCreate(lvMatrixView, i_th - 1, ChangeColorBrightness(Color.LightGreen, 0.6F));
             txbLogDijkstra.Clear();
+            tbPathPrim.Clear();
             txbLogs.Text += "[" + DateTime.Now.Hour + ":" + DateTime.Now.Minute + ":" + DateTime.Now.Second + "] Graph updated!\n";
         }
 
@@ -1002,7 +1023,7 @@ namespace Dijkstra_Demo
                         //Kiểm tra tính hợp lệ của giá trị timesleep
                         try
                         {
-                            int timesleep = Convert.ToInt16(txbTimeSleep.Text);
+                            int timesleep = Convert.ToInt16(txtSleepTime.Text);
                             if (timesleep >= 0)
                             {
                                 //Thiết lập tên button và hình ảnh
@@ -1051,7 +1072,11 @@ namespace Dijkstra_Demo
                     {
                         prim.PrimAll(lvMatrixView, lvTableView, i_th, cbStartVertex.SelectedIndex, out isPaths, Pt, segment, segment_dijkstra);
                         //Tạo bảng
-                        myGraph.TableView(lvTableView, ChangeColorBrightness(Color.LightSkyBlue, 0.7F));
+                        foreach(var item in segment_dijkstra)
+                        {
+                            tbPathPrim.Text += "Minimum cost [" + (item.S + 1) + "<-->" + (item.E + 1) + "]: " + item.W + "\n";
+                        }
+                        //myGraph.TableView(lvTableView, ChangeColorBrightness(Color.LightSkyBlue, 0.7F));
                         if (isPaths)
                         {
                             segment_dijkstra_Review_tmp.Clear();
@@ -1078,12 +1103,11 @@ namespace Dijkstra_Demo
             {
                 try
                 {
-                    if (isPaths) PrimStep();
-                    else MessageBox.Show("Error!", "Logs", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    PrimStep();
                 }
-                catch (Exception)
+                catch (Exception exp)
                 {
-                    MessageBox.Show("Error!", "Logs", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Error! " + exp.ToString(), "Logs", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             else MessageBox.Show("Start point or End point isn't choose!", "Logs", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -1091,7 +1115,62 @@ namespace Dijkstra_Demo
 
         private void PrimStep()
         {
+            //Refresh lại
+            picGraphView.Invalidate();
+            
+            if (prim_step)
+            {
+                //Chỉ cần chạy mội lần lấy giá trị cho các biến list tạm
+                segment_dijkstra.Clear();
+                lvTableView.Clear();
+                prim.PrimSimple(lvMatrixView, lv, i_th, cbStartVertex.SelectedIndex, out isPaths, Pt, segment, segment_dijkstra, segment_prim, prim_review);
+                prim_step = false;
+                tbPathPrim.Clear();
+            }
 
+
+            //Nếu có đường đi thì chạy từng bước theo lần lượt nhấn
+            if (!prim_step)
+            {
+                
+                if (segment_prim.Count != 0)
+                {
+                    
+                     tbPathPrim.Text += "Minimum cost [" + (segment_prim[0].S + 1) + "<-->" + (segment_prim[0].E + 1) + "]: " + segment_prim[0].W + "\n";
+                    
+                  
+                    picGraphView.Invalidate();
+                }
+
+                segment_dijkstra.Add(segment_prim[0]);
+                segment_prim.RemoveAt(0);
+
+                if (segment_prim.Count == 0)
+                {
+                    picGraphView.Invalidate();
+                    
+                    //Khi chạy xong hiện thông báo
+                    MessageBox.Show("Done!", "Logs", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    //khôi phục lại mặc định
+                    prim_step = true;
+                    isTimeSleep = false;
+                    btnRunPrim.Text = "Run";
+                    btnRunPrim.Image = Properties.Resources.Play;
+                }
+            }
+            else
+            {
+                //Báo lỗi và rest lại các thuộc tính
+                MessageBox.Show("Error!", "Logs", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                segment_dijkstra_save.Clear();
+                segment_dijkstra_Review.Clear();
+                picGraphView.Invalidate();
+                prim_step = true;
+                isTimeSleep = false;
+            }
+
+            //Tô màu cho lvTableView
+            myGraph.TableView(lvTableView, ChangeColorBrightness(Color.LightSkyBlue, 0.7F));
         }
         #endregion
 
