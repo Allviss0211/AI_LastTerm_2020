@@ -117,12 +117,14 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="PeseudoCode" xml:space="preserve">
-    <value>1  S ← empty sequence
-2  u ← target
-3  if prev[u] is defined or u = source:          // Do something only if the vertex is reachable
-4      while u is defined:                       // Construct the shortest path with a stack S
-5              insert u at the beginning of S        // Push the vertex onto the stack
-6              u ← prev[u]                           // Traverse from target to source</value>
+  <data name="PseudoCode" xml:space="preserve">
+    <value>     while Q is not empty:
+         u ← vertex in Q with min dist[u]             
+         remove u from Q
+          for each neighbor v of u still in Q:
+              alt ← dist[u] + length(u, v)
+              if alt &lt; dist[v]:              
+                  dist[v] ← alt
+                  prev[v] ← u</value>
   </data>
 </root>

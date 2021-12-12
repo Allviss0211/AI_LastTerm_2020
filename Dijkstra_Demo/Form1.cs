@@ -38,7 +38,6 @@ namespace Dijkstra_Demo
         List<List<Segment>> tested = new List<List<Segment>>();
 
         ListView lv = new ListView();
-        string[] pesude;
 
         public class Segment
         {
@@ -71,11 +70,9 @@ namespace Dijkstra_Demo
         {
             InitializeComponent();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PseudoCode));
-            
+            this.txbCode.Text = resources.GetString("PseudoCode");
             //Chỉnh size Maximum full màn hình
             this.MaximumSize = new Size(this.Width, Screen.PrimaryScreen.Bounds.Height);
-            this.txbLogDijkstra.Text = resources.GetString("PeseudoCode");
-            this.pesude = this.txbLogDijkstra.Lines;
             //Dành cho thread
             Control.CheckForIllegalCrossThreadCalls = false;
         }
@@ -418,6 +415,22 @@ namespace Dijkstra_Demo
             {
                 foreach (int i in segment_dijkstra_save)
                     myGraphic.DrawPoint(e.Graphics, Pt[i], (i + 1).ToString(), 5, Brushes.Yellow, this.Font);
+                selectedStep(1);
+                Thread.Sleep(1000);
+                unSelectedStep();
+                selectedStep(3); 
+                Thread.Sleep(500);
+                unSelectedStep();
+                selectedStep(4);
+                Thread.Sleep(500);
+                unSelectedStep();
+                selectedStep(5);
+                Thread.Sleep(500);
+                unSelectedStep();
+                selectedStep(6);
+                Thread.Sleep(500);
+                unSelectedStep();
+                selectedStep(7);
             }
 
             //segment_dijkstra_save_tmp có số phần từ bằng 0 thì vẽ ra đường đi ngắn nhất
@@ -444,6 +457,18 @@ namespace Dijkstra_Demo
                 foreach(PointColor i in PtColor)
                     myGraphic.DrawPoint(e.Graphics, Pt[i._index], (i._index + 1).ToString(), 5, new SolidBrush(i._color), this.Font);
             }
+            
+        }
+        public void selectedStep(int step)
+        {
+            string[] words = this.txbCode.Text.Split('\n');
+            this.txbCode.SelectionStart = this.txbCode.Find(words[step]);
+            this.txbCode.SelectionLength = words[step].Length;
+            this.txbCode.Focus();
+        }
+        public void unSelectedStep()
+        {
+            this.txbCode.DeselectAll();
         }
         #endregion
 
@@ -521,6 +546,7 @@ namespace Dijkstra_Demo
             PtColor.Clear();
             picGraphView.Invalidate();
             txbLogs.Clear();
+            txbLogDijkstra.Clear();
             txbTimeSleep.Clear();
             cbxTimeSleep.Checked = false;
             lvMatrixView.GridLines = false;
@@ -621,6 +647,7 @@ namespace Dijkstra_Demo
                 //Refresh lại bảng dijkstra chạy tay
                 lvTableView.Clear();
                 //Refresh lại hiển thị đường đi dijkstra
+                txbLogDijkstra.Clear();
                 //hiển thị logs
                 txbLogs.Text += "Graph demo " + (cbDemo.SelectedIndex + 1).ToString() + "\n";
 
@@ -651,7 +678,7 @@ namespace Dijkstra_Demo
             {                
                 //Gọi hàm mở đồ thị
                 myGraph.SaveGraph(Pt, segment, rbtnDirected.Checked, MySaveFileDialog.FileName);
-               
+                txbLogDijkstra.Clear();
                 txbLogs.Text += "[" + DateTime.Now.Hour + ":" + DateTime.Now.Minute + ":" + DateTime.Now.Second + "] Graph save!\n";
             }
         }
@@ -710,7 +737,7 @@ namespace Dijkstra_Demo
             lvTableView.Clear();
             PtColor.Clear();
             myGraph.MatrixCreate(lvMatrixView, i_th - 1, ChangeColorBrightness(Color.LightGreen, 0.6F));
-
+            txbLogDijkstra.Clear();
             txbLogs.Text += "[" + DateTime.Now.Hour + ":" + DateTime.Now.Minute + ":" + DateTime.Now.Second + "] Graph updated!\n";
         }
 
@@ -835,8 +862,8 @@ namespace Dijkstra_Demo
                     try
                     {
                         //Chạy hàm dijkstra cho all hoặc đơn lẻ
-                        if (cbEndPoint.SelectedIndex == 0) dijkstra.DijkstraAll(lvMatrixView, lvTableView, i_th, cbStartPoint.SelectedIndex, out isPaths, Pt, segment, segment_dijkstra, rbtnUnDirected.Checked);
-                        else dijkstra.DijkstraSimple(pesude, lvMatrixView, lvTableView, i_th, cbStartPoint.SelectedIndex, cbEndPoint.SelectedIndex - 1, out isPaths, Pt, segment, segment_dijkstra, segment_dijkstra_save_tmp, segment_dijkstra_Review_tmp, rbtnUnDirected.Checked);
+                        if (cbEndPoint.SelectedIndex == 0) dijkstra.DijkstraAll(lvMatrixView, lvTableView, i_th, cbStartPoint.SelectedIndex, out isPaths, txbLogDijkstra, Pt, segment, segment_dijkstra, rbtnUnDirected.Checked);
+                        else dijkstra.DijkstraSimple(lvMatrixView, lvTableView, i_th, cbStartPoint.SelectedIndex, cbEndPoint.SelectedIndex - 1, out isPaths, txbLogDijkstra, Pt, segment, segment_dijkstra, segment_dijkstra_save_tmp, segment_dijkstra_Review_tmp, rbtnUnDirected.Checked);
                         //Tạo bảng
                         myGraph.TableView(lvTableView, ChangeColorBrightness(Color.LightSkyBlue, 0.7F));
                         if (isPaths)
@@ -870,7 +897,7 @@ namespace Dijkstra_Demo
                 lvTableView.Clear();
                 segment_dijkstra_Review.Clear();
                 segment_dijkstra_save.Clear();
-                dijkstra.DijkstraSimple(pesude, lvMatrixView, lv, i_th, cbStartPoint.SelectedIndex, cbEndPoint.SelectedIndex - 1, out isPaths, Pt, segment, segment_dijkstra, segment_dijkstra_save_tmp, segment_dijkstra_Review_tmp, rbtnUnDirected.Checked);
+                dijkstra.DijkstraSimple(lvMatrixView, lv, i_th, cbStartPoint.SelectedIndex, cbEndPoint.SelectedIndex - 1, out isPaths, txbLogDijkstra, Pt, segment, segment_dijkstra, segment_dijkstra_save_tmp, segment_dijkstra_Review_tmp, rbtnUnDirected.Checked);
                 for (int i = 1; i < i_th; ++i) lvTableView.Columns.Add(i.ToString(), 80);
             }
 
@@ -892,7 +919,6 @@ namespace Dijkstra_Demo
                         segment_dijkstra_Review.Clear();
                         segment_dijkstra_Review.Add(segment_dijkstra_Review_tmp[0]);
                         segment_dijkstra_Review_tmp.RemoveAt(0);
-              
                     }
                 }
 
@@ -1194,7 +1220,9 @@ namespace Dijkstra_Demo
 
         private int num_th = 0;
 
+
         //Hàm thuật toán xử lý cho đề tài thực tế 
+        #region
         private void Tested(List<int> _listPointLocation, List<int> _road, int _nearpoint, int _res, bool _isPathTested, List<Segment> _segments)
         {
             _road.Add(_nearpoint + 1);
@@ -1245,7 +1273,7 @@ namespace Dijkstra_Demo
                         bool tmpIsPaths = _isPathTested;
                         tmpRes += tmpLength[i];
                         List<Segment> _segments_test = new List<Segment>();
-                        dijkstra.DijkstraSimple(pesude,lvMatrixView, new ListView(), i_th, start, tmpPoint[i], out _isPathTested, Pt, segment, _segments_test, segment_dijkstra_save_tmp, segment_dijkstra_Review_tmp, rbtnUnDirected.Checked);
+                        dijkstra.DijkstraSimple(lvMatrixView, new ListView(), i_th, start, tmpPoint[i], out _isPathTested, new RichTextBox(), Pt, segment, _segments_test, segment_dijkstra_save_tmp, segment_dijkstra_Review_tmp, rbtnUnDirected.Checked);
                         lvTableView.Clear();
                         changelistSegment(tmpSegments, _segments_test);
 
@@ -1267,7 +1295,7 @@ namespace Dijkstra_Demo
 
                 //Chạy dijkstra để lấy danh sách lưu graphic vẽ
                 List<Segment> segments_test = new List<Segment>();
-                dijkstra.DijkstraSimple(pesude,lvMatrixView, new ListView(), i_th, start, _nearpoint, out _isPathTested, Pt, segment, segments_test, segment_dijkstra_save_tmp, segment_dijkstra_Review_tmp, rbtnUnDirected.Checked);
+                dijkstra.DijkstraSimple(lvMatrixView, new ListView(), i_th, start, _nearpoint, out _isPathTested, new RichTextBox(), Pt, segment, segments_test, segment_dijkstra_save_tmp, segment_dijkstra_Review_tmp, rbtnUnDirected.Checked);
                 lvTableView.Clear();
                 changelistSegment(_segments, segments_test);
 
@@ -1320,6 +1348,7 @@ namespace Dijkstra_Demo
             using (Graphics g = CreateGraphics())
                 txb.Height = (int)g.MeasureString(txb.Text, txb.Font, txb.Width).Height;
         }
+        #endregion
 
         //Sự kiện ẩn ScrollBars khi rời chuột khỏi 
         private void Txb_MouseLeave(object sender, EventArgs e)
