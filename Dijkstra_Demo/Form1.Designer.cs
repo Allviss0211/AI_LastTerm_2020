@@ -87,8 +87,6 @@
             this.txbStarting = new System.Windows.Forms.TextBox();
             this.txbListLocation = new System.Windows.Forms.TextBox();
             this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.tbLogPrim = new System.Windows.Forms.RichTextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.pnlTimeSleep2 = new System.Windows.Forms.Panel();
             this.label11 = new System.Windows.Forms.Label();
@@ -129,6 +127,10 @@
             this.MySaveFileDialog = new System.Windows.Forms.SaveFileDialog();
             this.SaveFileDialogImage = new System.Windows.Forms.SaveFileDialog();
             this.MyColorDialog = new System.Windows.Forms.ColorDialog();
+            this.tbLogPrim = new System.Windows.Forms.RichTextBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.tbPathPrim = new System.Windows.Forms.RichTextBox();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -147,7 +149,6 @@
             this.tabPage3.SuspendLayout();
             this.pnlTested.SuspendLayout();
             this.tabPage4.SuspendLayout();
-            this.groupBox3.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.pnlTimeSleep2.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -155,6 +156,8 @@
             this.pnlGraph.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picGraphView)).BeginInit();
             this.ctMenustripGrapView.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            this.groupBox4.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -166,7 +169,7 @@
             this.helpToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1308, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(1308, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -303,7 +306,7 @@
             this.tabPage1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.tabPage1.Size = new System.Drawing.Size(547, 506);
+            this.tabPage1.Size = new System.Drawing.Size(547, 511);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Graph";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -463,7 +466,7 @@
             this.tabPage2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.tabPage2.Size = new System.Drawing.Size(547, 506);
+            this.tabPage2.Size = new System.Drawing.Size(547, 511);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Dijkstra";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -683,7 +686,7 @@
             this.tabPage3.Controls.Add(this.pnlTested);
             this.tabPage3.Location = new System.Drawing.Point(4, 24);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(547, 506);
+            this.tabPage3.Size = new System.Drawing.Size(547, 511);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Tested";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -776,7 +779,7 @@
             // 
             this.txbStarting.Location = new System.Drawing.Point(7, 29);
             this.txbStarting.Name = "txbStarting";
-            this.txbStarting.Size = new System.Drawing.Size(68, 27);
+            this.txbStarting.Size = new System.Drawing.Size(68, 23);
             this.txbStarting.TabIndex = 2;
             this.toolTip1.SetToolTip(this.txbStarting, "One Point Starting");
             // 
@@ -791,38 +794,16 @@
             // 
             // tabPage4
             // 
+            this.tabPage4.Controls.Add(this.groupBox4);
             this.tabPage4.Controls.Add(this.groupBox3);
             this.tabPage4.Controls.Add(this.groupBox1);
             this.tabPage4.Controls.Add(this.groupBox2);
             this.tabPage4.Location = new System.Drawing.Point(4, 24);
             this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Size = new System.Drawing.Size(582, 507);
+            this.tabPage4.Size = new System.Drawing.Size(547, 511);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Prim";
             this.tabPage4.UseVisualStyleBackColor = true;
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.tbLogPrim);
-            this.groupBox3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.groupBox3.Location = new System.Drawing.Point(6, 214);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(570, 278);
-            this.groupBox3.TabIndex = 11;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "PseudoCode";
-            // 
-            // tbLogPrim
-            // 
-            this.tbLogPrim.BackColor = System.Drawing.Color.White;
-            this.tbLogPrim.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tbLogPrim.Location = new System.Drawing.Point(6, 20);
-            this.tbLogPrim.Name = "tbLogPrim";
-            this.tbLogPrim.ReadOnly = true;
-            this.tbLogPrim.Size = new System.Drawing.Size(558, 254);
-            this.tbLogPrim.TabIndex = 1;
-            this.tbLogPrim.Text = "";
-            this.tbLogPrim.TextChanged += new System.EventHandler(this.richTextBox1_TextChanged);
             // 
             // groupBox1
             // 
@@ -1287,6 +1268,51 @@
             // 
             this.MyColorDialog.FullOpen = true;
             // 
+            // tbLogPrim
+            // 
+            this.tbLogPrim.BackColor = System.Drawing.Color.White;
+            this.tbLogPrim.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbLogPrim.Location = new System.Drawing.Point(12, 13);
+            this.tbLogPrim.Name = "tbLogPrim";
+            this.tbLogPrim.ReadOnly = true;
+            this.tbLogPrim.Size = new System.Drawing.Size(546, 166);
+            this.tbLogPrim.TabIndex = 1;
+            this.tbLogPrim.Text = "";
+            this.tbLogPrim.TextChanged += new System.EventHandler(this.richTextBox1_TextChanged);
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.tbLogPrim);
+            this.groupBox3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.groupBox3.Location = new System.Drawing.Point(6, 313);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(570, 179);
+            this.groupBox3.TabIndex = 11;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "PseudoCode";
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.tbPathPrim);
+            this.groupBox4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.groupBox4.Location = new System.Drawing.Point(7, 198);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(532, 114);
+            this.groupBox4.TabIndex = 12;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Path";
+            // 
+            // tbPathPrim
+            // 
+            this.tbPathPrim.BackColor = System.Drawing.Color.White;
+            this.tbPathPrim.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbPathPrim.Location = new System.Drawing.Point(6, 22);
+            this.tbPathPrim.Name = "tbPathPrim";
+            this.tbPathPrim.ReadOnly = true;
+            this.tbPathPrim.Size = new System.Drawing.Size(520, 84);
+            this.tbPathPrim.TabIndex = 1;
+            this.tbPathPrim.Text = "";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -1341,7 +1367,6 @@
             this.pnlTested.ResumeLayout(false);
             this.pnlTested.PerformLayout();
             this.tabPage4.ResumeLayout(false);
-            this.groupBox3.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.pnlTimeSleep2.ResumeLayout(false);
@@ -1353,6 +1378,8 @@
             this.pnlGraph.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picGraphView)).EndInit();
             this.ctMenustripGrapView.ResumeLayout(false);
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox4.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1447,8 +1474,6 @@
         private System.Windows.Forms.GroupBox gboxCode;
         private System.Windows.Forms.RichTextBox txbCode;
         private System.Windows.Forms.TabPage tabPage4;
-        private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.RichTextBox tbLogPrim;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Panel pnlTimeSleep2;
         private System.Windows.Forms.TextBox txtSleepTime;
@@ -1459,6 +1484,10 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.ComboBox cbStartVertex;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.RichTextBox tbPathPrim;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.RichTextBox tbLogPrim;
     }
 }
 

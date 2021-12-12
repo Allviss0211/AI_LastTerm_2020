@@ -8,127 +8,58 @@ namespace Dijkstra_Demo
 {
     internal class Prim
     {
-        public void PrimSimple(string[] pesude, ListView lv, ListView lvtable, int n, int s, int e, out bool isPath, List<Point> pt, List<Form1.Segment> segment, List<Form1.Segment> tmp, List<int> _segment, List<List<Form1.Segment>> Segment_Review)
+        public void PrimSimple(ListView lv, ListView lvtable, int n, int s, out bool isPath, List<Point> pt, List<Form1.Segment> segment, List<Form1.Segment> tmp, List<Form1.Segment> segment_prim, List<int> segment_review)
         {
             tmp.Clear();
+            segment_review.Clear();
 
             lvtable.Clear();
-            Segment_Review.Clear();
-            _segment.Clear();
 
+            List<Form1.Segment> tree = new List<Form1.Segment>();
 
-            ListViewItem it = new ListViewItem("(oo, -)");
-
-            for (int i = 1; i < n; ++i) lvtable.Columns.Add(i.ToString(), 80);
-
-            for (int i = 1; i < n; ++i) it.SubItems.Add("(oo, -)");
-
-            it.SubItems[s].Text = "(0, " + (s + 1).ToString() + ")*";
-
-            lvtable.Items.Add(it);
+            if (tree.Count == 0)
+            {
+                tree = segment.Select(x => x).ToList();
+            }
 
             int oo = 99999999;
-            List<int> length = new List<int>();
             List<int> last = new List<int>();
-            List<int> roads = new List<int>();
             List<bool> visited = new List<bool>();
             isPath = true;
 
+            if(!segment_review.Contains(s))
+                segment_review.Add(s);
+
             for (int i = 0; i < n; ++i)
             {
-                length.Add(oo);
-                last.Add(-1);
-                visited.Add(true);
+                //length.Add(oo);
+                //last.Add(-1);
+                visited.Add(false);
             }
 
-            length[s] = 0;
-            visited[s] = false;
-            last[s] = s;
-            int b = 1;
+            //Bắt đàu chạy
 
-            int v = s;
-            //Bắt đầu chạy
-            while (visited[e])
+            while (segment_review.Count < pt.Count)
             {
-                _segment.Add(v);
-                int dem = 0;
+                var edges = segment.Where(p => (segment_review.Contains(p.S) && !segment_review.Contains(p.E)) || (segment_review.Contains(p.E) && !segment_review.Contains(p.S)));
+                var minw = edges.Min(p => Int32.Parse(p.W));
+                var minEdge = edges.Where(p => p.W == minw.ToString()).First();
+                segment_prim.Add(minEdge);
 
-                ListViewItem item = new ListViewItem("(oo, -)");
-                for (int iv = 1; iv < n; ++iv) item.SubItems.Add("(oo, -)");
+                tree.Remove(minEdge);
 
-                item.SubItems[v].Text = "-";
-
-                List<Form1.Segment> segment_load = new List<Form1.Segment>();
-
-                for (int i = 0; i < n - 1; ++i)
+                if (!segment_review.Contains(minEdge.S))
                 {
-                    int num = int.Parse(lv.Items[v].SubItems[i + 1].Text);
-                    int temp = length[i];
-
-                    if (lv.Items[v].SubItems[i + 1].Text == "0") ++dem;
-
-                    if (!visited[i]) item.SubItems[i].Text = "-";
-                    else if (length[i] == temp && b != 1) item.SubItems[i].Text = lvtable.Items[b - 1].SubItems[i].Text;
-
-                    if (lv.Items[v].SubItems[i + 1].Text != "0" && visited[i] && (length[i] == oo || length[i] >= length[v] + num))
-                    {
-                        length[i] = length[v] + num;
-                        last[i] = v;
-                        item.SubItems[i].Text = "(" + length[i].ToString() + ", " + (last[i] + 1).ToString() + ")";
-                    }
+                    segment_review.Add(minEdge.S);
+                    visited[minEdge.S] = true;
                 }
-
-                //if (dem == n - 1) { txb.Text = "No Path!"; isPath = false; break; }
-
-                int Mins = oo;
-
-                for (int i = 0; i < n; ++i)
+                if (!segment_review.Contains(minEdge.E))
                 {
-                    if (visited[i] && length[i] != oo)
-                    {
-                        if (Mins > length[i])
-                        {
-                            v = i;
-                            Mins = length[i];
-                            Console.WriteLine(pesude[1]);
-                        }
-                    }
+                    segment_review.Add(minEdge.E);
+                    visited[minEdge.E] = true;
                 }
-
-                Segment_Review.Add(segment_load);
-
-                item.SubItems[v].Text += "*";
-                lvtable.Items.Add(item);
-
-                visited[v] = false;
-
-                ++b;
             }
 
-            if (isPath)
-            {
-                _segment.Add(e);
-
-                int k = e;
-                //Truy vết
-                while (k != s)
-                {
-                    roads.Add(k);
-                    k = last[k];
-                    Console.WriteLine(pesude[2]);
-                }
-
-                roads.Add(s);
-
-                //txb.Text += "Shortest Path [" + (s + 1).ToString() + "->" + (e + 1).ToString() + "] : ";
-                for (int i = roads.Count - 1; i > 0; --i)
-                {
-                    tmp.Add(new Form1.Segment(roads[i], roads[i - 1], checkIndexWidth(segment, roads[i], roads[i - 1])));
-                    //txb.Text += (roads[i] + 1).ToString() + " --> ";
-                }
-
-                //txb.Text += (roads[0] + 1).ToString() + "\n Length: " + length[e].ToString();
-            }
         }
 
         //Hàm dijkstra chạy từ 1 đểm đến tất cả
@@ -138,10 +69,12 @@ namespace Dijkstra_Demo
 
             lvtable.Clear();
 
-            List<Form1.Segment> tree = new List<Form1.Segment>();
-
             int oo = 99999999;
-            List<Form1.Segment> segment_tmp = segment;
+            List<Form1.Segment> segment_tmp = new List<Form1.Segment>();
+            if (segment_tmp.Count == 0)
+            {
+                segment_tmp = segment.Select(x => x).ToList();
+            }
             List<int> last = new List<int>();
             List<bool> visited = new List<bool>();
             isPath = true;

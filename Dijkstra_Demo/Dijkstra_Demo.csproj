@@ -94,6 +94,11 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PseudoCode.Designer.cs" />
+    <Compile Include="PrimCode.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PrimCode.resx</DependentUpon>
+    </Compile>
     <Compile Include="Welcome.cs" />
     <Compile Include="WinAPI.cs" />
     <EmbeddedResource Include="About.resx">
@@ -120,6 +125,10 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="PseudoCode.resx" />
+    <EmbeddedResource Include="PrimCode.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>PrimCode.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
